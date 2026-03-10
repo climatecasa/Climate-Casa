@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Casa</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&display=swap');
+
+        :root {
+            --sage: #8f9e8b;
+            --logo-brown: #5d4e42; 
+            --shiny-copper: #8c6c5a; 
+            --dark-beige: #a68d7a;
+            --cream: #faf9f6;
+            --white: #ffffff;
+            --wood-tone: #f5f0eb;
+            --wardrobe-border: #eaddcf;
+            --light-brown-outline: #c5b4a2; /* Lightened polished brown for door frame */
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream);
+            color: var(--logo-brown);
+            overflow-x: hidden;
+        }
+
+        /* --- ENTRANCE --- */
+        #entrance {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 2000; background: var(--cream);
+            display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer;
+            transition: opacity 1.5s ease-in-out, visibility 1.5s;
+        }
+        .door-frame {
+            position: relative; width: 280px; height: 460px; background: var(--white);
+            border-radius: 140px 140px 5px 5px; display: flex; overflow: hidden;
+            /* LIGHT BROWN SHINY OUTLINE */
+            border: 12px solid var(--light-brown-outline); 
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.4), 0 30px 60px rgba(0, 0, 0, 0.08);
+        }
+        .door-panel {
+            width: 50%; height: 100%; background-color: var(--wood-tone);
+            transition: transform 2.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative; border: 0.5px solid rgba(0,0,0,0.03);
+        }
+        
+        .knocker-focal { 
+            position: absolute; z-index: 10; top: 50%; left: 50%; 
+            transform: translate(-50%, -50%); 
+            display: flex; flex-direction: column; align-items: center; 
+        }
+        .heart-knocker { 
+            width: 30px; height: 30px;
+            background-color: var(--logo-brown);
+            transform: rotate(-45deg); position: relative;
+        }
+        .heart-knocker::before, .heart-knocker::after { 
+            content: ""; width: 30px; height: 30px; 
+            background-color: var(--logo-brown); 
+            border-radius: 50%; position: absolute; 
+        }
+        .heart-knocker::before { top: -15px; left: 0; } 
+        .heart-knocker::after { left: 15px; top: 0; }
+
+        .tap-invitation { 
+            color: var(--logo-brown); font-family: 'Playfair Display', serif; 
+            font-style: italic; font-size: 1rem; position: absolute; top: -50px; 
+            white-space: nowrap; animation: popUp 2s infinite ease-in-out;
+        }
+        @keyframes popUp {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .door-tagline { margin-top: 30px; font-family: 'Playfair Display', serif; font-style: italic; color: var(--shiny-copper); font-size: 1.1rem; letter-spacing: 1.5px; text-align: center; }
+        
+        .opened .door-panel:nth-child(1) { transform: translateX(-105%); }
+        .opened .door-panel:nth-child(2) { transform: translateX(105%); }
+        .opened { opacity: 0; visibility: hidden; }
+
+        /* --- MAIN CONTENT --- */
+        #content { opacity: 0; padding: 60px 25px; max-width: 600px; margin: 0 auto; transition: opacity 1.8s ease; text-align: center; }
+        .reveal { opacity: 1 !important; }
+        .brand-logo { width: 100px; margin: 0 auto 20px; display: block; mix-blend-mode: multiply; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 0; }
+        .hero-tagline { letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; margin-top: 10px; color: var(--logo-brown); }
+
+        .section { 
+            background: white; padding: 40px; border-radius: 4px; margin-top: 40px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02); border-top: 2px solid var(--wood-tone);
+        }
+        .main-text { line-height: 2; color: #555; font-size: 1.05rem; }
+        .button { display: inline-block; margin-top: 25px; padding: 14px 38px; background: var(--logo-brown); color: white; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border: none; }
+
+        /* --- WARDROBE --- */
+        #shelves-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--cream); z-index: 3000; display: none; overflow-y: auto; padding: 60px 0 0px; }
+        .shelf-container { max-width: 800px; margin: 0 auto; padding: 0 25px; }
+        .order-hint { font-family: 'Playfair Display', serif; font-style: italic; color: var(--dark-beige); text-align: center; margin-bottom: 30px; font-weight: 500; }
+        .wardrobe-block { border: 8px solid var(--wardrobe-border); background: var(--white); padding: 20px; margin-bottom: 40px; }
+        .shelf-label { font-family: 'Playfair Display', serif; font-style: italic; color: var(--logo-brown); font-size: 1.3rem; margin-bottom: 15px; display: block; text-align: left; }
+        .gliding-row { display: flex; gap: 15px; overflow-x: auto; padding-top: 15px; border-top: 2px solid var(--wardrobe-border); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .gliding-row::-webkit-scrollbar { display: none; }
+        .art-item { flex: 0 0 160px; aspect-ratio: 3/4; background: #fff; overflow: hidden; border: 1px solid #eee; }
+        .art-item img { width: 100%; height: 100%; object-fit: cover; }
+        .explore-card { flex: 0 0 140px; aspect-ratio: 3/4; background: var(--wood-tone); display: flex; align-items: center; justify-content: center; padding: 15px; text-align: center; text-decoration: none; color: var(--logo-brown); font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.85rem; border: 1px dashed var(--wardrobe-border); }
+        .close-btn { position: fixed; top: 25px; right: 25px; font-family: 'Playfair Display', serif; cursor: pointer; z-index: 3005; font-size: 1.2rem; }
+        .wardrobe-footer-gap { height: 80px; width: 100%; }
+        
+        .trademark { color: var(--logo-brown); font-size: 0.75rem; letter-spacing: 2px; margin-top: 60px; padding-bottom: 40px; text-align: center; font-weight: 500;}
+    </style>
+</head>
+<body>
+
+    <div id="entrance" onclick="openDoor()">
+        <div class="door-frame">
+            <div class="door-panel"></div><div class="door-panel"></div>
+            <div class="knocker-focal">
+                <div class="tap-invitation">Tap to step inside</div>
+                <div class="heart-knocker"></div>
+            </div>
+        </div>
+        <div class="door-tagline">From nature to your heart.</div>
+    </div>
+
+    <div id="content">
+        <img src="logo.png" class="brand-logo">
+        <div class="hero">
+            <h1>Climate Casa</h1>
+            <div class="hero-tagline">House of Climate Positive Projects</div>
+        </div>
+
+        <div class="section">
+            <p class="main-text">Climate Casa began with a simple purpose: to educate people about climate and sustainability.<br><br>
+            It is a warm, home-like space where storytelling and nature-inspired art bring environmental ideas closer to people in a creative and meaningful way.<br><br>
+            A casa where you can pause for eco-adventures, create with nature, and walk away feeling a little more connected to the world around you. 🌿</p>
+            <span style="font-family: 'Playfair Display', serif; color: var(--sage);">~ Himanshi Shrimali, Founder</span>
+        </div>
+
+        <div class="section">
+            <h2 style="font-family: 'Playfair Display', serif;">Art Shelves</h2>
+            <p class="main-text">A curated collection of handmade art crafted from ethically sourced fallen twigs, leaves, petals, and repurposed paper bags. Every piece is mindfully handcrafted for gifting and life’s special moments.</p>
+            <button class="button" onclick="openShelves()">Have a look</button>
+        </div>
+
+        <div class="section">
+            <h2 style="font-family: 'Playfair Display', serif;">Eco-Adventure Fiction</h2>
+            <p class="main-text">Climate Casa & The Adventures of Kali<br>An eco-fun read where climate knowledge meets sustainable adventure. Available on Amazon Kindle.</p>
+            <a href="https://wa.me/YOURNUMBER" class="button">Amazon Kindle</a>
+        </div>
+
+        <div class="section">
+            <h2 style="font-family: 'Playfair Display', serif;">Illustrated Eco Storybook</h2>
+            <p class="main-text">Tara and Her Tiny Treasures is an eco-illustrated storybook created to introduce young readers to the gentle world and values behind Art Shelves.</p>
+            <a href="https://wa.me/YOURNUMBER" class="button">Amazon Kindle</a>
+        </div>
+
+        <div class="section">
+            <h2 style="font-family: 'Playfair Display', serif;">Keep Visiting Us</h2>
+            <p class="main-text">Thank you for spending time in Climate Casa. The doors are always open ~ come back anytime for a spark of climate joy.</p>
+            <a href="https://www.instagram.com/art.shelves/" class="button">Good Day</a>
+        </div>
+
+        <div class="trademark">CLIMATE CASA © 2023</div>
+    </div>
+
+    <div id="shelves-overlay">
+        <div class="close-btn" onclick="closeShelves()">✕ Close</div>
+        <div class="shelf-container">
+            <h1 style="font-family: 'Playfair Display', serif; text-align: center; margin-top: 40px;">Art Shelves</h1>
+            <div class="order-hint">Find the perfect piece to gift</div>
+
+            <div class="wardrobe-block">
+                <span class="shelf-label">Birthday Greetings</span>
+                <div class="gliding-row">
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img100.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img16.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img17.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img20.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img7.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="explore-card">Tap to explore the complete collection</a>
+                </div>
+            </div>
+
+            <div class="wardrobe-block">
+                <span class="shelf-label">Threaded Nature</span>
+                <div class="gliding-row">
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img9.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img1.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img2.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img3.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img8.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="explore-card">Tap to explore the complete collection</a>
+                </div>
+            </div>
+
+            <div class="wardrobe-block">
+                <span class="shelf-label">Woven Wings</span>
+                <div class="gliding-row">
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img13.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img5.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img14.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img4.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img12.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img21.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="explore-card">Tap to explore the complete collection</a>
+                </div>
+            </div>
+
+            <div class="wardrobe-block">
+                <span class="shelf-label">Vintage Collection</span>
+                <div class="gliding-row">
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img10.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img15.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img11.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img18.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="art-item"><img src="img6.png"></a>
+                    <a href="https://wa.me/YOURNUMBER" class="explore-card">Tap to explore the complete collection</a>
+                </div>
+            </div>
+
+            <div class="wardrobe-footer-gap"></div>
+        </div>
+    </div>
+
+    <script>
+        function openDoor() {
+            document.getElementById('entrance').classList.add('opened');
+            setTimeout(() => {
+                document.getElementById('content').classList.add('reveal');
+                setTimeout(() => { document.getElementById('entrance').style.display = 'none'; }, 1800);
+            }, 400);
+        }
+        function openShelves() { 
+            document.getElementById('shelves-overlay').style.display = 'block'; 
+            document.body.style.overflow = 'hidden';
+        }
+        function closeShelves() { 
+            document.getElementById('shelves-overlay').style.display = 'none'; 
+            document.body.style.overflow = 'auto'; 
+        }
+    </script>
+</body>
+</html>
