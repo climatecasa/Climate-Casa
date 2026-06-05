@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unbound by Himanshi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300&底display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfbf7;
+            --text-color: #2c2c2c;
+            --accent-color: #8e8e8e;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* --- Intro Animation --- */
+        #intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom, #87CEEB, #ffffff);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: transform 1.5s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        .plane {
+            font-size: 50px;
+            animation: takeOff 4s forwards ease-in-out;
+            position: absolute;
+        }
+
+        .intro-text {
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s 2s forwards;
+        }
+
+        .intro-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        @keyframes takeOff {
+            0% { transform: translate(-150%, 100%) rotate(-15deg); opacity: 1; }
+            40% { transform: translate(0%, 0%) rotate(-25deg); opacity: 1; }
+            100% { transform: translate(200%, -200%) rotate(-35deg); opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Main Content --- */
+        main {
+            opacity: 0;
+            transition: opacity 1s ease;
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .section {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* --- Page Turn Effect --- */
+        .book-container {
+            perspective: 1500px;
+            margin: 50px 0;
+        }
+
+        .page {
+            background: white;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transform-origin: left;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .page.flipped {
+            transform: rotateY(-160deg);
+        }
+
+        .page-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f9f9f9;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        .hint {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .final-reveal {
+            margin-top: 100px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            border-top: 1px solid #eee;
+            padding-top: 50px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="intro-overlay">
+        <div class="plane">✈️</div>
+        <div class="intro-text" id="intro-text-box">
+            <h1>Unbound by Himanshi</h1>
+            <p>— For every life that seeks to be its own 🤍</p>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <section class="section">
+            <p>Freedom begins the moment you choose yourself.</p>
+            <p>In the quiet decisions no one claps for.</p>
+            <p>It begins when you say no without guilt.</p>
+            <p>When you stop shrinking to fit spaces that were never meant for you.</p>
+        </section>
+
+        <div class="book-container">
+            <div class="page" id="flippablePage" onclick="flipPage()">
+                <div class="page-front">
+                    <p>Choosing yourself doesn’t mean you stop loving others.</p>
+                    <p>It means you stop abandoning yourself in the process.</p>
+                    <p class="hint">(Tap to turn the page)</p>
+                </div>
+                <div class="page-back">
+                    <div>
+                        <p>It’s in walking away & in staying with what feels true.</p>
+                        <p>In allowing your life to take a shape that feels like home to you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="final-reveal">
+            <p>Your time on this earth is not meant to be a performance for others.</p>
+            <p><strong>It is yours.</strong></p>
+        </section>
+    </main>
+
+    <script>
+        // Sequence the intro
+        window.addEventListener('load', () => {
+            const overlay = document.getElementById('intro-overlay');
+            const main = document.getElementById('main-content');
+            
+            // Wait 6 seconds (plane + text display) then drop the intro
+            setTimeout(() => {
+                overlay.style.transform = 'translateY(-100%)';
+                main.style.opacity = '1';
+            }, 6000);
+        });
+
+        // Handle page flip
+        function flipPage() {
+            document.getElementById('flippablePage').classList.toggle('flipped');
+        }
+    </script>
+</body>
+</html>
