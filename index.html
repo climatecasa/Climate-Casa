@@ -8,33 +8,34 @@
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,400;0,600;0,700;1,400&family=Poppins:wght=300;400;500;600&display=swap');
 
         :root {
-            --sage: #8f9e8b;
-            --logo-brown: #70543E; 
-            --shiny-copper: #8c6c5a; 
-            --dark-beige: #a68d7a;
-            --light-beige: #f3ece3;
-            --cream: #faf9f6;
+            --dark-beige: #bfaea0;
+            --light-beige: #e8dec9;
+            --cream: #fdfbf7;
             --white: #ffffff;
-            --wood-tone: #f5f0eb;
+            --wood-tone: #f5ece1;
             --wardrobe-border: #d6c6b7;
             --light-brown-outline: #c5b4a2;
+            --black: #1a110b;
             
             /* Structural Theme updates */
-            --illuminating-beige: #ebdccb;
+            --illuminating-beige: #d9cbb6;
             ---rust-window: #fcfbf4;
-            --window-golden-glow: #fdf5cd;
-            --leaf-green: #798a75;
-            --gold-glow: #fceeac;
-            --brown-gold-glow: #c5a059;
-            --airplane-beige: #e1d5c2;
+            --window-golden-glow: #f5ebd0;
+            --gold-glow: #f0e2b6;
+            --brown-gold-glow: #a88959;
+            --airplane-beige: #dcd0bc;
+            
+            /* Updated Heart Shade: Dark Rust Red */
+            --heart-tone: #8e3c33;
         }
 
         body, html {
             margin: 0; padding: 0;
             font-family: 'Cormorant Garamond', sans-serif;
             background-color: var(--cream);
-            color: var(--logo-brown);
+            color: var(--black);
             overflow-x: hidden;
+            font-size: 14px;
         }
 
         /* --- ENTRANCE --- */
@@ -45,10 +46,10 @@
             transition: opacity 1.5s ease-in-out, visibility 1.5s;
         }
         .door-frame {
-            position: relative; width: 280px; height: 460px; background: var(--white);
-            border-radius: 140px 140px 5px 5px; display: flex; overflow: hidden;
-            border: 12px solid var(--light-brown-outline); 
-            box-shadow: inset 0 0 10px rgba(255,255,255,0.4), 0 30px 60px rgba(0, 0, 0, 0.08);
+            position: relative; width: 240px; height: 400px; background: var(--white);
+            border-radius: 120px 120px 5px 5px; display: flex; overflow: hidden;
+            border: 10px solid var(--light-brown-outline); 
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.4), 0 25px 50px rgba(0, 0, 0, 0.04);
         }
         .door-panel {
             width: 50%; height: 100%; background-color: var(--wood-tone);
@@ -62,370 +63,307 @@
             display: flex; flex-direction: column; align-items: center; 
         }
         .heart-knocker { 
-            width: 30px; height: 30px;
-            background-color: var(--logo-brown);
+            width: 24px; height: 24px;
+            background-color: var(--heart-tone);
             transform: rotate(-45deg); position: relative;
             animation: heartGlowPulse 2.5s ease-in-out infinite alternate;
         }
         .heart-knocker::before, .heart-knocker::after { 
-            content: ""; width: 30px; height: 30px; 
-            background-color: var(--logo-brown); 
+            content: ""; width: 24px; height: 24px; 
+            background-color: var(--heart-tone); 
             border-radius: 50%; position: absolute; 
             animation: heartGlowPulseColor 2.5s ease-in-out infinite alternate;
         }
-        .heart-knocker::before { top: -15px; left: 0; } 
-        .heart-knocker::after { left: 15px; top: 0; }
+        .heart-knocker::before { top: -12px; left: 0; } 
+        .heart-knocker::after { left: 12px; top: 0; }
 
-        /* Glowing Keyframes for the Entrance Door Heart */
+        /* Glowing Keyframes for the Dark Rust Red Heart */
         @keyframes heartGlowPulse {
-            2% { 
-                background-color: var(--logo-brown);
-                box-shadow: 0 0 4px rgba(197, 160, 89, 0);
+            0% { 
+                background-color: var(--heart-tone);
+                box-shadow: 0 0 4px rgba(142, 58, 36, 0);
             }
             100% { 
-                background-color: #463a30;
-                box-shadow: -4px 4px 20px rgba(197, 160, 89, 0.85), -2px 2px 6px rgba(140, 108, 90, 0.5);
+                background-color: var(--heart-tone);
+                box-shadow: -4px 4px 20px rgba(142, 58, 36, 0.7);
             }
         }
         @keyframes heartGlowPulseColor {
-            0% { background-color: var(--logo-brown); }
-            100% { background-color: #463a30; }
+            0% { background-color: var(--heart-tone); }
+            100% { background-color: var(--heart-tone); }
         }
 
         .tap-invitation { 
-            color: var(--logo-brown); font-family: 'Cormorant Garamond', serif; 
-            font-style: italic; font-size: 1rem; position: absolute; top: -50px; 
+            color: var(--black); font-family: 'Cormorant Garamond', serif; 
+            font-style: italic; font-size: 0.88rem; position: absolute; top: -40px; 
             white-space: nowrap; animation: popUp 2s infinite ease-in-out;
+            letter-spacing: 0.5px;
         }
         @keyframes popUp {
             0%, 100% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.1); opacity: 1; }
+            50% { transform: scale(1.03); opacity: 1; }
         }
 
-        .door-tagline { margin-top: 30px; font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--shiny-copper); font-size: 1.1rem; letter-spacing: 1.5px; text-align: center; }
+        .door-tagline { margin-top: 25px; font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--black); font-size: 0.95rem; letter-spacing: 1px; text-align: center; }
         
         .opened .door-panel:nth-child(1) { transform: translateX(-105%); }
         .opened .door-panel:nth-child(2) { transform: translateX(105%); }
         .opened { opacity: 0; visibility: hidden; }
 
-        /* --- MAIN CONTENT CONTAINER RE-SPACED --- */
-        #content { opacity: 0; padding: 80px 25px 60px; max-width: 650px; margin: 0 auto; transition: opacity 1.8s ease; text-align: center; }
+        /* --- MAIN CONTENT CONTAINER --- */
+        #content { opacity: 0; padding: 80px 24px 60px; max-width: 600px; margin: 0 auto; transition: opacity 1.8s ease; text-align: center; }
         .reveal { opacity: 1 !important; }
         
-        /* --- BRAND TEXT ANIMATION WITH BEAUTIFUL GLOW --- */
+        /* --- BRAND TEXT ANIMATION WITH GLOW --- */
         .hero h1 { 
             font-family: 'Cormorant Garamond', serif; 
-            font-size: 2.8rem; 
+            font-size: 2.6rem; 
             margin: 0; 
-            color: var(--logo-brown);
+            color: var(--black);
             position: relative;
             display: inline-block;
+            font-weight: 600;
         }
 
         .reveal .hero h1 {
-            background: linear-gradient(to right, var(--logo-brown) 0%, var(--dark-beige) 25%, var(--logo-brown) 50%, var(--logo-brown) 100%);
+            background: linear-gradient(to right, var(--black) 0%, var(--black) 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: moveShineOnce 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards, floatingTitleOnce 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards, beautifulBrandGlow 4s ease-in-out infinite alternate 2.5s;
         }
 
-        /* Twinkling Dark Beige Star Vector */
+        /* Twinkling Star Vector */
         .reveal .hero h1::after {
             content: '';
             position: absolute;
-            top: -5px;
+            top: -2px;
             right: -20px;
-            width: 15px;
-            height: 15px;
+            width: 12px;
+            height: 12px;
             background: var(--dark-beige);
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            box-shadow: 0 0 8px rgba(166, 141, 122, 0.5);
+            box-shadow: 0 0 6px rgba(191, 174, 160, 0.4);
             animation: starTwinkleOnce 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
         @keyframes moveShineOnce {
             0% { background-position: 200% center; }
-            100% { background-position: 0% center; background-image: none; -webkit-text-fill-color: var(--logo-brown); }
+            100% { background-position: 0% center; background-image: none; -webkit-text-fill-color: var(--black); }
         }
 
         @keyframes floatingTitleOnce {
-            0% { transform: translateY(20px); opacity: 0; }
-            50% { transform: translateY(-6px); opacity: 1; }
+            0% { transform: translateY(15px); opacity: 0; }
+            50% { transform: translateY(-4px); opacity: 1; }
             100% { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes beautifulBrandGlow {
-            0% { text-shadow: 0 0 0px rgba(235, 220, 203, 0); }
-            100% { text-shadow: 0 0 18px rgba(166, 141, 122, 0.5), 0 0 4px rgba(93, 78, 66, 0.25); color: #4b3e34; }
+            0% { text-shadow: 0 0 0px rgba(217, 203, 182, 0); }
+            100% { text-shadow: 0 0 12px rgba(191, 174, 160, 0.3); color: var(--black); }
         }
 
         @keyframes starTwinkleOnce {
             0% { transform: scale(0) rotate(0deg); opacity: 0; }
-            40% { transform: scale(1.3) rotate(90deg); opacity: 1; }
-            70% { transform: scale(0.7) rotate(140deg); opacity: 0.4; }
+            40% { transform: scale(1.2) rotate(90deg); opacity: 1; }
+            70% { transform: scale(0.8) rotate(140deg); opacity: 0.4; }
             100% { transform: scale(1) rotate(180deg); opacity: 1; }
         }
 
-        .hero-tagline { letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; margin-top: 10px; color: var(--logo-brown); margin-bottom: 40px; }
+        .hero-tagline { letter-spacing: 2px; text-transform: uppercase; font-size: 0.72rem; margin-top: 10px; color: var(--black); margin-bottom: 40px; opacity: 0.85; }
 
-        .about-text-box { margin-bottom: 40px; line-height: 1.8; color: #555; }
+        .about-text-box { margin-bottom: 40px; line-height: 1.8; color: var(--black); font-size: 0.96rem; }
 
-        /* --- ILLUMINATING BEIGE SQUARE CASA BOUNDARY --- */
+        /* --- CASA BOUNDARY --- */
         .casa-building {
             position: relative;
             width: 100%;
-            max-width: 420px;
-            margin: 50px auto;
+            max-width: 380px;
+            margin: 45px auto;
             background: var(--white);
-            border: 4px solid var(--illuminating-beige); 
-            padding: 55px 35px;
+            border: 1px solid var(--light-brown-outline); 
+            padding: 45px 30px;
             box-sizing: border-box;
-            box-shadow: 0 0 30px rgba(235, 220, 203, 0.85), 0 20px 45px rgba(93, 78, 66, 0.05);
-            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(26, 17, 11, 0.03), 0 1px 3px rgba(0,0,0,0.01);
+            border-radius: 12px;
         }
 
-        /* --- RECTANGULAR WINDOW PANES WITH GRAPHICAL MODERN BEIGE LEAVES --- */
+        /* --- RECTANGULAR WINDOW PANES --- */
         .window-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--light-rust-window);
-            border: 1px solid rgba(93, 78, 66, 0.25);
-            border-radius: 4px;
-            margin: 0 auto 24px;
-            width: 92%;
-            height: 72px;
+            background: var(--white);
+            border: 1px solid rgba(26, 17, 11, 0.15);
+            border-radius: 6px;
+            margin: 0 auto 16px;
+            width: 95%;
+            height: 60px;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             letter-spacing: 0.5px;
-            color: var(--logo-brown);
+            color: var(--black);
             cursor: pointer;
             text-decoration: none;
             box-sizing: border-box;
             transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             position: relative;
             outline: none;
+            font-weight: 600;
         }
 
-        /* Modern Graphical Vector Leaves Styled in Beige */
         .window-btn::before, .window-btn::after {
             content: '';
             position: absolute;
-            width: 14px;
-            height: 14px;
+            width: 10px;
+            height: 10px;
             background: var(--dark-beige);
             border-radius: 0 100% 0 100%;
-            opacity: 0.5;
+            opacity: 0.4;
             transition: all 0.4s ease;
         }
-        .window-btn::before {
-            left: 24px;
-            transform: rotate(-15deg);
-        }
-        .window-btn::after {
-            right: 24px;
-            transform: rotate(75deg);
-        }
+        .window-btn::before { left: 24px; transform: rotate(-15deg); }
+        .window-btn::after { right: 24px; transform: rotate(75deg); }
 
-        /* Hover Window State */
         .window-btn:hover {
             background-color: var(--window-golden-glow);
-            color: var(--logo-brown);
+            color: var(--black);
             border-color: var(--dark-beige);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(235, 220, 203, 0.5);
+            box-shadow: 0 8px 20px rgba(217, 203, 182, 0.35);
         }
-        .window-btn:hover::before {
-            opacity: 0.9;
-            background: var(--shiny-copper);
-            transform: scale(1.25) rotate(-35deg);
-        }
-        .window-btn:hover::after {
-            opacity: 0.9;
-            background: var(--shiny-copper);
-            transform: scale(1.25) rotate(95deg);
-        }
+        .window-btn:hover::before { opacity: 0.9; background: var(--black); transform: scale(1.1) rotate(-35deg); }
+        .window-btn:hover::after { opacity: 0.9; background: var(--black); transform: scale(1.1) rotate(95deg); }
         .window-btn:last-child { margin-bottom: 0; }
 
         /* --- EXTERIOR DECORATIVE SECTIONS --- */
         .section { 
-            background: white; padding: 40px; border-radius: 4px; margin-top: 40px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.02); border-top: 2px solid var(--wood-tone);
+            background: white; padding: 35px 30px; border-radius: 12px; margin-top: 40px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.01); border: 1px solid rgba(26, 17, 11, 0.05);
             position: relative;
         }
-        .main-text { line-height: 2; color: #555; font-size: 1.05rem; }
+        .main-text { line-height: 1.8; color: var(--black); font-size: 0.96rem; }
 
-        /* --- ILLUMINATING GOOD DAY BUTTON WITH HOVERING BUTTERFLIES --- */
+        /* --- GOOD DAY BUTTON --- */
         .butterfly-btn-wrapper {
             position: relative;
             display: inline-block;
-            margin-top: 25px;
+            margin-top: 24px;
         }
         .button { 
             display: inline-block; 
-            padding: 14px 42px; 
-            background: #fffdf3; 
-            color: var(--logo-brown); 
+            padding: 12px 40px; 
+            background: var(--white); 
+            color: var(--black); 
             text-decoration: none; 
-            font-size: 0.78rem; 
-            letter-spacing: 2px; 
+            font-size: 0.75rem; 
+            letter-spacing: 1.5px; 
             text-transform: uppercase; 
             cursor: pointer; 
-            border: 2px solid var(--illuminating-beige); 
-            border-radius: 50px;
+            border: 1px solid var(--light-brown-outline); 
+            border-radius: 40px;
             font-weight: 600;
-            box-shadow: 0 0 15px rgba(252, 238, 172, 0.6), inset 0 0 10px rgba(255,255,255,1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
             position: relative;
             z-index: 5;
             transition: all 0.4s ease;
         }
         .button:hover {
-            background: var(--gold-glow);
-            border-color: var(--dark-beige);
-            box-shadow: 0 0 25px rgba(252, 238, 172, 0.95);
-            transform: scale(1.03);
+            background: var(--black);
+            border-color: var(--black);
+            box-shadow: 0 8px 20px rgba(26, 17, 11, 0.15);
+            transform: translateY(-1px);
+            color: var(--white);
         }
 
-        .butterfly {
-            position: absolute;
-            font-size: 1.2rem;
-            color: var(--shiny-copper);
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            z-index: 1;
-        }
-        .bf-1 { top: 0; left: 20%; transform: translateY(10px) scale(0.6); }
-        .bf-2 { top: -5px; right: 25%; transform: translateY(10px) scale(0.6); }
-        .bf-3 { bottom: 5px; left: 45%; transform: translateY(-10px) scale(0.5); }
-
-        .butterfly-btn-wrapper:hover .butterfly {
-            opacity: 0.95;
-        }
-        .butterfly-btn-wrapper:hover .bf-1 { transform: translate(-25px, -35px) rotate(-20deg) scale(1); animation: flutter 0.15s infinite alternate; }
-        .butterfly-btn-wrapper:hover .bf-2 { transform: translate(30px, -40px) rotate(25deg) scale(1.1); animation: flutter 0.12s infinite alternate-reverse; }
-        .butterfly-btn-wrapper:hover .bf-3 { transform: translate(5px, -45px) rotate(-5deg) scale(0.95); animation: flutter 0.18s infinite alternate; }
-
-        @keyframes flutter {
-            0% { transform: translate(var(--tw-translate-x, 0), var(--tw-translate-y, 0)) scale(var(--tw-scale-x, 1)) skewY(-4deg); }
-            100% { transform: translate(var(--tw-translate-x, 0), var(--tw-translate-y, 0)) scale(var(--tw-scale-x, 1)) skewY(4deg); }
-        }
-
-        /* --- CLIMATE CREATIVE LIBRARY --- */
-        #shelves-overlay { 
+        /* --- INTERIOR OVERLAYS (Creative Library & Kind Sections) --- */
+        #shelves-overlay, #kind-overlay, #air-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: linear-gradient(135deg, #fbfaf5 0%, #f3ece3 100%);
-            background-image: radial-gradient(rgba(166, 141, 122, 0.08) 1px, transparent 0);
-            background-size: 30px 30px;
+            background: linear-gradient(135deg, #fdfbf7 0%, #e8dec9 100%);
+            background-image: radial-gradient(rgba(26, 17, 11, 0.03) 1px, transparent 0);
+            background-size: 25px 25px;
             z-index: 3500; display: none; overflow-y: auto; padding: 80px 0 0px; 
         }
-        .shelf-container { max-width: 800px; margin: 0 auto; padding: 0 25px; position: relative; }
+        .shelf-container { max-width: 650px; margin: 0 auto; padding: 0 24px; position: relative; }
         
         .creative-title {
             font-family: 'Cormorant Garamond', serif; 
-            font-weight: 700;
-            font-size: 2.8rem;
-            color: var(--logo-brown);
-            text-align: center; margin-top: 20px; margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 2.4rem;
+            color: var(--black);
+            text-align: center; margin-top: 15px; margin-bottom: 6px;
             position: relative;
             display: block;
             animation: textGlowPulse 3s ease-in-out infinite alternate;
         }
 
-        /* Text Title Illuminating Animation Loop */
         @keyframes textGlowPulse {
-            0% { color: var(--logo-brown); text-shadow: 0 0 4px rgba(197, 160, 89, 0); }
-            100% { color: #463a30; text-shadow: 0 0 15px rgba(197, 160, 89, 0.6), 0 0 2px rgba(140, 108, 90, 0.3); }
+            0% { color: var(--black); text-shadow: 0 0 3px rgba(168, 137, 89, 0); }
+            100% { color: var(--black); text-shadow: 0 0 12px rgba(168, 137, 89, 0.2); }
         }
 
-        /* Red heart emoji popping over title footprint */
-        .creative-title-heart {
-            position: relative;
-            display: inline-block;
-        }
-        .creative-title-heart::after {
-            content: '♥️';
-            position: absolute;
-            font-size: 1rem;
-            top: -10px;
-            right: -18px;
-            animation: heartPopShine 2s infinite ease-in-out;
-        }
-
-        @keyframes heartPopShine {
-            0%, 100% { transform: scale(0.85); opacity: 0.8; filter: drop-shadow(0 0 2px rgba(255,0,0,0.3)); }
-            50% { transform: scale(1.15) translateY(-2px); opacity: 1; filter: drop-shadow(0 0 6px rgba(255, 30, 30, 0.7)); }
-        }
-
-        .order-hint { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--shiny-copper); text-align: center; margin-bottom: 40px; font-weight: 400; font-size: 1.1rem; }
+        .order-hint { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--black); text-align: center; margin-bottom: 40px; font-weight: 400; font-size: 1rem; opacity: 0.8; }
         
         .library-room {
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            margin-bottom: 60px;
+            gap: 30px;
+            margin-bottom: 50px;
             clear: both;
         }
 
-        /* --- ART SHELVES CARD STATE --- */
+        /* --- CARDS & SHELVES --- */
         .intro-vintage-card {
             background: #ffffff; 
-            border: 3px solid var(--brown-gold-glow);
-            border-radius: 6px;
-            padding: 35px;
+            border: 1px solid var(--light-brown-outline);
+            border-radius: 12px;
+            padding: 35px 30px;
             text-align: center;
             position: relative;
             box-sizing: border-box;
-            box-shadow: 0 0 25px rgba(197, 160, 89, 0.4), inset 0 0 15px rgba(197, 160, 89, 0.05);
-            animation: borderGlow 3s ease-in-out infinite alternate;
+            box-shadow: 0 10px 30px rgba(26, 17, 11, 0.02);
         }
         .intro-vintage-card::before {
             content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px;
-            border: 1px dashed rgba(197, 160, 89, 0.3); pointer-events: none;
+            border: 1px dashed rgba(168, 137, 89, 0.2); pointer-events: none;
+            border-radius: 6px;
         }
 
-        @keyframes borderGlow {
-            0% { border-color: var(--logo-brown); box-shadow: 0 0 15px rgba(93, 78, 66, 0.2); }
-            100% { border-color: var(--brown-gold-glow); box-shadow: 0 0 30px rgba(197, 160, 89, 0.55), inset 0 0 15px rgba(197, 160, 89, 0.15); }
-        }
-
-        /* --- ILLUMINATING ECO-ADVENTURE VAULT UNIT --- */
         .bookshelf-unit {
             background: #ffffff; 
-            border: 3px solid var(--brown-gold-glow);
-            border-radius: 6px;
-            padding: 35px 25px 25px;
+            border: 1px solid var(--light-brown-outline);
+            border-radius: 12px;
+            padding: 35px 30px 30px;
             box-sizing: border-box;
             position: relative;
             font-family: 'Cormorant Garamond', sans-serif;
-            box-shadow: 0 0 25px rgba(197, 160, 89, 0.4), inset 0 0 15px rgba(197, 160, 89, 0.05);
-            animation: borderGlow 3s ease-in-out infinite alternate;
+            box-shadow: 0 10px 30px rgba(26, 17, 11, 0.02);
         }
         .bookshelf-unit::before {
             content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px;
-            border: 1px dashed rgba(197, 160, 89, 0.3); pointer-events: none;
+            border: 1px dashed rgba(168, 137, 89, 0.2); pointer-events: none;
+            border-radius: 6px;
         }
         .bookshelf-unit::after {
             content: '';
             position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 12px;
+            bottom: 0; left: 0; width: 100%; height: 8px;
             background: #c5b4a2;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 0 0 4px 4px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.02);
+            border-radius: 0 0 12px 12px;
         }
 
         .shelf-headline {
             font-family: 'Cormorant Garamond', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1rem;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: var(--logo-brown);
-            margin-bottom: 25px;
+            color: var(--black);
+            margin-bottom: 24px;
             display: block;
             text-align: left;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+            border-bottom: 1px solid rgba(168, 137, 89, 0.15);
             padding-bottom: 8px;
         }
 
@@ -433,11 +371,11 @@
             display: flex;
             align-items: center;
             background: #ffffff;
-            border: 1px solid rgba(93, 78, 66, 0.18);
-            border-left: 7px solid var(--shiny-copper);
+            border: 1px solid rgba(26, 17, 11, 0.12);
+            border-left: 4px solid var(--black);
             padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 0 6px 6px 0;
+            margin-bottom: 16px;
+            border-radius: 0 8px 8px 0;
             text-decoration: none;
             color: inherit;
             transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
@@ -446,42 +384,42 @@
             position: relative;
             z-index: 2;
         }
-        .book-link-button:last-of-type { margin-bottom: 10px; }
+        .book-link-button:last-of-type { margin-bottom: 8px; }
         .book-link-button:hover {
-            transform: translateX(6px);
-            box-shadow: 0 8px 20px rgba(143, 158, 139, 0.15);
+            transform: translateX(4px);
+            box-shadow: 0 8px 20px rgba(217, 203, 182, 0.25);
             background: #fffefb;
-            border-color: var(--sage);
+            border-color: var(--dark-beige);
         }
 
-        .book-icon { font-size: 2rem; margin-right: 20px; color: var(--dark-beige); flex-shrink: 0; }
+        .book-icon { font-size: 1.6rem; margin-right: 18px; color: var(--dark-beige); flex-shrink: 0; }
         .book-meta { flex-grow: 1; }
-        .book-meta h4 { font-family: 'Poppins', sans-serif; font-weight: 600; margin: 0 0 6px 0; font-size: 1.15rem; color: var(--logo-brown); line-height: 1.4; }
-        .book-meta p { font-family: 'Poppins', sans-serif; font-weight: 300; margin: 0; font-size: 0.88rem; color: #666; line-height: 1.6; }
+        .book-meta h4 { font-family: 'Poppins', sans-serif; font-weight: 500; margin: 0 0 6px 0; font-size: 0.95rem; color: var(--black); line-height: 1.4; }
+        .book-meta p { font-family: 'Poppins', sans-serif; font-weight: 300; margin: 0; font-size: 0.82rem; color: var(--black); line-height: 1.5; opacity: 0.8; }
 
-        /* --- WHITE COLOURED INSTAGRAM BADGE BUTTON --- */
+        /* --- INSTAGRAM BADGE BUTTON --- */
         .insta-badge-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             background: #ffffff; 
-            color: var(--logo-brown);
+            color: var(--black);
             text-decoration: none;
-            padding: 14px 30px;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+            padding: 10px 24px;
+            font-size: 0.78rem;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
-            border-radius: 30px;
+            border-radius: 25px;
             font-weight: 600;
             margin-top: 15px;
-            border: 2px solid rgba(197, 160, 89, 0.4); 
+            border: 1px solid rgba(26, 17, 11, 0.2); 
             transition: all 0.3s ease;
         }
         
         .insta-icon {
-            width: 18px;
-            height: 18px;
-            stroke: var(--logo-brown);
+            width: 15px;
+            height: 15px;
+            stroke: var(--black);
             stroke-width: 2;
             stroke-linecap: round;
             stroke-linejoin: round;
@@ -490,23 +428,21 @@
         }
 
         .insta-badge-btn:hover {
-            background: var(--logo-brown);
+            background: var(--black);
             color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(93, 78, 66, 0.2);
-            border-color: var(--logo-brown);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: var(--black);
         }
         .insta-badge-btn:hover .insta-icon { stroke: var(--white); }
 
-        .close-btn { position: fixed; top: 25px; right: 30px; font-family: 'Cormorant Garamond', sans-serif; font-weight: 500; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; z-index: 4000; background: var(--white); padding: 8px 16px; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: var(--logo-brown); transition: all 0.3s ease; }
-        .close-btn:hover { background: var(--logo-brown); color: var(--white); }
-        .wardrobe-footer-gap { height: 80px; width: 100%; }
+        .close-btn { position: fixed; top: 24px; right: 24px; font-family: 'Cormorant Garamond', sans-serif; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; z-index: 4000; background: var(--white); padding: 8px 16px; border-radius: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(26, 17, 11, 0.05); color: var(--black); transition: all 0.3s ease; }
+        .close-btn:hover { background: var(--black); color: var(--white); }
+        .wardrobe-footer-gap { height: 60px; width: 100%; }
         
         /* --- CLIMATE AIR PAGE STRUCTURE --- */
         #air-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(180deg, #f7f3eb 0%, #e8dec9 100%);
-            z-index: 3500; display: none; overflow-y: auto;
         }
         
         .air-container {
@@ -517,58 +453,58 @@
 
         .air-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem; font-weight: 700; color: var(--logo-brown); margin-bottom: 10px;
+            font-size: 2.6rem; font-weight: 600; color: var(--black); margin-bottom: 8px;
         }
 
         .air-subtitle {
             font-family: 'Cormorant Garamond', serif; font-style: italic;
-            font-size: 1.3rem; color: var(--shiny-copper); margin-bottom: 30px; max-width: 500px;
+            font-size: 1.15rem; color: var(--black); margin-bottom: 35px; max-width: 450px; opacity: 0.85;
         }
 
         .air-card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            padding: 40px; border-radius: 12px; max-width: 550px;
-            box-shadow: 0 20px 40px rgba(93, 78, 66, 0.06);
-            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            padding: 40px 30px; border-radius: 16px; max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+            margin-bottom: 25px;
         }
 
-        /* Air Page Takeoff Button Styling */
         .takeoff-btn {
             display: inline-block;
-            margin-top: 25px;
-            padding: 14px 36px;
-            background: #fffdf3;
-            color: var(--logo-brown);
+            margin-top: 24px;
+            padding: 12px 36px;
+            background: var(--white);
+            color: var(--black);
             text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             cursor: pointer;
-            border: 2px solid var(--illuminating-beige);
-            border-radius: 50px;
+            border: 1px solid var(--light-brown-outline);
+            border-radius: 40px;
             font-weight: 600;
-            box-shadow: 0 0 15px rgba(252, 238, 172, 0.4);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
             transition: all 0.4s ease;
         }
         .takeoff-btn:hover {
-            background: var(--gold-glow);
-            border-color: var(--dark-beige);
-            box-shadow: 0 0 25px rgba(252, 238, 172, 0.8);
-            transform: scale(1.03);
+            background: var(--black);
+            border-color: var(--black);
+            box-shadow: 0 8px 20px rgba(26, 17, 11, 0.15);
+            transform: translateY(-1px);
+            color: var(--white);
         }
 
-        /* Illuminating Text Header Class */
         .glowing-air-header {
             font-family: 'Cormorant Garamond', serif; 
             margin-top: 0; 
-            font-size: 1.4rem; 
-            color: var(--logo-brown);
+            font-size: 1.3rem; 
+            color: var(--black);
+            font-weight: 600;
             animation: textGlowPulse 3s ease-in-out infinite alternate;
         }
 
-        /* Moving Clouds Background Layers */
         .fog-bg {
             position: absolute; top: 0; left: 0; width: 200%; height: 100%;
             pointer-events: none;
@@ -579,7 +515,7 @@
             animation: driftFog 32s linear infinite; bottom: 0; height: 70%; 
         }
         .fog-2 { 
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400"><path d="M0,250 Q120,180 280,250 T580,250 T880,250 L1000,250 L1000,400 L0,400 Z" fill="rgba(245,240,230,0.55)"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400"><path d="M0,250 Q120,180 280,250 T580,250 T880,250 L1000,250 L1000,400 L0,400 Z" fill="rgba(255,255,255,0.4)"/></svg>');
             background-size: 50% 100%; opacity: 0.75;
             animation: driftFog 46s linear infinite reverse; bottom: -20px; height: 90%; 
         }
@@ -589,20 +525,20 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* Structured Aeroplane Flight Paths Container - Right to Left Animation Setup */
+        /* --- REDESIGNED HIGH-REALISM AIRPLANE --- */
         .airplane-container {
-            position: absolute; top: 22%; right: -220px; width: 220px; height: 80px;
+            position: absolute; width: 280px; height: 110px;
             pointer-events: none; z-index: 2;
-            animation: flyAcrossRightToLeft 18s linear infinite;
+            animation: flyAcrossRightToLeft 22s linear infinite;
         }
 
         @keyframes flyAcrossRightToLeft {
-            0% { right: -230px; top: 28%; transform: scale(0.7) rotate(-1deg); }
-            50% { top: 15%; transform: scale(0.95) rotate(1deg); }
-            100% { right: 115%; top: 24%; transform: scale(0.7) rotate(-1.5deg); }
+            0% { right: -300px; top: 32%; transform: scale(0.55) rotate(-1.5deg); }
+            50% { top: 16%; transform: scale(0.75) rotate(0.5deg); }
+            100% { right: 120%; top: 26%; transform: scale(0.55) rotate(-1.5deg); }
         }
 
-        .trademark { color: var(--logo-brown); font-size: 0.75rem; letter-spacing: 2px; margin-top: 60px; padding-bottom: 40px; text-align: center; font-weight: 500;}
+        .trademark { color: var(--black); font-size: 0.7rem; letter-spacing: 1.5px; margin-top: 60px; padding-bottom: 30px; text-align: center; font-weight: 500; opacity: 0.7; }
     </style>
 </head>
 <body>
@@ -627,23 +563,20 @@
 
         <div class="about-text-box">
             <p class="main-text">Climate Casa began with a simple purpose: to educate people about climate and sustainability. What started as a platform for sharing climate knowledge has evolved into a space for creativity, curiosity, and impact. From storytelling and social initiatives to exploring the future of sustainable aviation, Climate Casa reflects the many ways sustainability can inspire, connect, and drive change.</p>
-            <span style="font-family: 'Cormorant Garamond', serif; color: var(--sage); font-weight: 600;">~ Himanshi Shrimali, Founder</span>
+            <span style="font-family: 'Cormorant Garamond', serif; color: var(--dark-beige); font-weight: 600;">~ Himanshi Shrimali, Founder</span>
         </div>
 
         <div class="casa-building">
             <button class="window-btn" onclick="openShelves()">Climate Creative</button>
-            <a href="https://climatecasa.github.io/Unbound/" class="window-btn" target="_blank">Climate Kind</a>
+            <button class="window-btn" onclick="openKindPage()">Climate Kind</button>
             <button class="window-btn" onclick="openAirPage()">Climate Air</button>
         </div>
 
         <div class="section">
-            <h2 style="font-family: 'Cormorant Garamond', serif;">Keep Visiting Us</h2>
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin-top: 0;">Keep Visiting Us</h2>
             <p class="main-text">Thank you for spending time in Climate Casa. The doors are always open ~ come back anytime for a spark of climate joy.</p>
             
             <div class="butterfly-btn-wrapper">
-                <span class="butterfly bf-1">🦋</span>
-                <span class="butterfly bf-2">🦋</span>
-                <span class="butterfly bf-3">🦋</span>
                 <a href="https://www.linkedin.com/company/climate-casa/" class="button" target="_blank">Good Day</a>
             </div>
         </div>
@@ -654,15 +587,15 @@
     <div id="shelves-overlay">
         <div class="close-btn" onclick="closeShelves()">✕ Close</div>
         <div class="shelf-container">
-            <h1 class="creative-title">Climate Creative</span></h1>
+            <h1 class="creative-title">Climate Creative</h1>
             <div class="order-hint">Where sustainability is crafted into stories and art.</div>
 
             <div class="library-room">
                 
                 <div class="intro-vintage-card">
-                    <h2 style="font-family: 'Cormorant Garamond', serif; margin-top: 0; color: var(--logo-brown); font-weight: 700;">Art Shelves</h2>
-                    <p class="main-text" style="font-size: 1rem; color: #555; max-width: 600px; margin: 0 auto 20px;">
-                        From fallen twigs and dried leaves to timeless handmade art, Art Shelves gives nature's leftovers a second life. Rooted in Climate Casa's vision, every piece transforms overlooked materials into stories of renewal, reducing waste while inspiring a deeper connection with the natural world.
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-top: 0; color: var(--black); font-weight: 700;">Art Shelves</h2>
+                    <p class="main-text" style="font-size: 0.88rem; color: var(--black); max-width: 600px; margin: 0 auto 15px;">
+                        From fallen twigs and dried leaves to timeless handmade keepsakes, Art Shelves gives nature's leftovers a second life. Rooted in Climate Casa's vision, every piece transforms overlooked materials into stories of renewal, reducing waste while inspiring a deeper connection with the natural world.
                     </p>
                     <a href="https://www.instagram.com/art.shelves/" class="insta-badge-btn" target="_blank">
                         <svg class="insta-icon" viewBox="0 0 24 24">
@@ -700,6 +633,46 @@
         </div>
     </div>
 
+    <div id="kind-overlay">
+        <div class="close-btn" onclick="closeKindPage()">✕ Close</div>
+        <div class="shelf-container">
+            <h1 class="creative-title">Climate Kind</h1>
+            <div class="order-hint">A collection of purpose-driven projects inspired by mindful living</div>
+
+            <div class="library-room">
+                
+                <div class="bookshelf-unit">
+                    <span class="shelf-headline">Unbound</span>
+                    <a href="https://climatecasa.github.io/Unbound/" class="book-link-button" target="_blank">
+                        <div class="book-icon">💫</div>
+                        <div class="book-meta">
+                            <h4>Unbound Project</h4>
+                            <p>Discover a celebration of individuality, conscious choices, freedom, and intentional living.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="intro-vintage-card">
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-left: 0; color: var(--black); font-weight: 700;">Walnut & Wonder</h2>
+                    <p class="main-text" style="font-size: 0.88rem; color: var(--black); max-width: 600px; margin: 0 auto 15px;">
+                        Embrace mindful choices with conscious snack tins curated with rich, nutritious dry fruits. Every selection comes packaged with an elegant, handwritten inspiring note designed to brighten your spirit and bring sustainable wellness directly to your daily routine.
+                    </p>
+                    <a href="https://www.instagram.com/walnutandwonder/" class="insta-badge-btn" target="_blank">
+                        <svg class="insta-icon" viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        <span>Follow Walnut & Wonder</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="wardrobe-footer-gap"></div>
+        </div>
+    </div>
+
     <div id="air-overlay">
         <div class="close-btn" onclick="closeAirPage()">✕ Close</div>
         
@@ -707,11 +680,50 @@
         <div class="fog-bg fog-2"></div>
         
         <div class="airplane-container">
-            <svg viewBox="0 0 240 80" width="210" height="70" style="transform: scaleX(1);">
-                <path d="M125 22 l28 -18 c2 -1 4 -1 3 2 l-12 18 z" fill="#bfaea0" />
-                <path d="M210 32 l14 -7 c1 -1 2 0 1 1 l-5 6 z" fill="#bfaea0" />
-                <path d="M15 36 c5 -4 14 -7 25 -7 h155 c12 0 20 2 25 7 c4 4 1 8 -5 10 c-10 3 -155 3 -175 1 c-12 -1 -23 -3 -25 -7 z" fill="var(--airplane-beige)" />
-                <path d="M22 33 c3 -2 6 -2 8 -1 l-1 3 c-2 -1 -5 -1 -7 0 z" fill="#4a3b32" opacity="0.8" />
+            <!-- Refined, Proportionally Balanced Commercial Eco-Liner Jet Vector -->
+            <svg viewBox="0 0 300 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="fuselageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" />
+                        <stop offset="65%" stop-color="#e3dfd5" />
+                        <stop offset="100%" stop-color="#bdae9c" />
+                    </linearGradient>
+                    <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#d9d4c7" />
+                        <stop offset="100%" stop-color="#a39887" />
+                    </linearGradient>
+                </defs>
+                <!-- Tail Vertical Stabilizer Fin -->
+                <path d="M225 36 L248 10 C250 7, 253 7, 254 11 L252 38 Z" fill="var(--dark-beige)" />
+                <path d="M242 36 L250 14 L253 36 Z" fill="#9e8f7d" opacity="0.4" />
+                
+                <!-- Rear Horizontal Stabilizer Wing -->
+                <path d="M238 43 L260 41 C263 41, 263 44, 260 45 L236 46 Z" fill="#a39887" />
+
+                <!-- Main Fuselage Body Core -->
+                <path d="M25 46 C55 35, 95 34, 155 34 C215 34, 245 39, 254 44 C260 47, 260 51, 252 53 C240 56, 195 57, 145 57 C85 57, 45 54, 28 51 C18 49, 15 47, 25 46 Z" fill="url(#fuselageGrad)" />
+                
+                <!-- Cockpit Windows Flight Deck -->
+                <path d="M34 44 C38 42, 45 42, 48 43 L45 46 C41 46, 36 46, 34 44 Z" fill="#1a110b" opacity="0.85" />
+                
+                <!-- Minimal Passenger Cabin Windows Line -->
+                <g fill="#1a110b" opacity="0.4">
+                    <circle cx="68" cy="44" r="1.2" /><circle cx="76" cy="44" r="1.2" /><circle cx="84" cy="44" r="1.2" />
+                    <circle cx="92" cy="44" r="1.2" /><circle cx="100" cy="44" r="1.2" /><circle cx="108" cy="44" r="1.2" />
+                    <circle cx="116" cy="44" r="1.2" /><circle cx="124" cy="44" r="1.2" /><circle cx="132" cy="44" r="1.2" />
+                    <circle cx="160" cy="44" r="1.2" /><circle cx="168" cy="44" r="1.2" /><circle cx="176" cy="44" r="1.2" />
+                    <circle cx="184" cy="44" r="1.2" /><circle cx="192" cy="44" r="1.2" /><circle cx="200" cy="44" r="1.2" />
+                </g>
+
+                <!-- Far Side Main Wing (Partial Projection) -->
+                <path d="M125 35 L158 16 C161 14, 164 16, 162 19 L142 35 Z" fill="#b0a696" opacity="0.7" />
+
+                <!-- Near Side Main Wing (Swept Monoplane structure) -->
+                <path d="M112 48 L170 78 C173 80, 177 79, 176 75 L152 48 Z" fill="url(#wingGrad)" />
+                
+                <!-- Under-Wing Propulsion Jet Engine Intake & Pod -->
+                <path d="M124 55 C124 51, 138 51, 144 54 C148 56, 146 62, 138 62 C132 62, 124 59, 124 55 Z" fill="#7a6e5f" />
+                <ellipse cx="126" cy="55" rx="2" ry="3" fill="#1a110b" />
             </svg>
         </div>
 
@@ -721,12 +733,12 @@
             
             <div class="air-card">
                 <h3 class="glowing-air-header">Flying Toward Net Zero</h3>
-                <p class="main-text" style="font-size: 1rem; color: #555; margin-bottom: 0;">
+                <p class="main-text" style="font-size: 0.88rem; color: var(--black); margin-bottom: 0;">
                     Sustainable aviation is more than a destination - it's a journey.
 Explore the innovations, breakthroughs, and conversations shaping what's next.
 For a future where flight and sustainability can coexist.
                 </p>
-                <a href="https://drive.google.com/drive/folders/1v4JjcWp349pl8Zrd1Ga3UGXVa9OT5Lx-?usp=drive_link" class="takeoff-btn" target="">Ready To Take Off</a>
+                <a href="https://drive.google.com/drive/folders/1v4JjcWp349pl8Zrd1Ga3UGXVa9OT5Lx-" class="takeoff-btn" target="_blank">Ready For Take Off ?</a>
             </div>
         </div>
     </div>
@@ -747,6 +759,17 @@ For a future where flight and sustainability can coexist.
 
         function closeShelves() {
             document.getElementById('shelves-overlay').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }
+
+        function openKindPage() {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('kind-overlay').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function closeKindPage() {
+            document.getElementById('kind-overlay').style.display = 'none';
             document.getElementById('content').style.display = 'block';
         }
 
