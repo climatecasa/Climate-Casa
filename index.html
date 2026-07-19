@@ -77,7 +77,6 @@
         .heart-knocker::before { top: -12px; left: 0; } 
         .heart-knocker::after { left: 12px; top: 0; }
 
-        /* Glowing Keyframes for the Dark Rust Red Heart */
         @keyframes heartGlowPulse {
             0% { 
                 background-color: var(--heart-tone);
@@ -133,7 +132,6 @@
             animation: moveShineOnce 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards, floatingTitleOnce 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards, beautifulBrandGlow 4s ease-in-out infinite alternate 2.5s;
         }
 
-        /* Twinkling Star Vector */
         .reveal .hero h1::after {
             content: '';
             position: absolute;
@@ -276,8 +274,8 @@
             color: var(--white);
         }
 
-        /* --- INTERIOR OVERLAYS (Creative Library & Kind Sections) --- */
-        #shelves-overlay, #kind-overlay, #air-overlay { 
+        /* --- INTERIOR OVERLAYS --- */
+        #shelves-overlay, #tales-overlay, #kind-overlay, #air-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: linear-gradient(135deg, #fdfbf7 0%, #e8dec9 100%);
             background-image: radial-gradient(rgba(26, 17, 11, 0.03) 1px, transparent 0);
@@ -327,6 +325,130 @@
             content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px;
             border: 1px dashed rgba(168, 137, 89, 0.2); pointer-events: none;
             border-radius: 6px;
+        }
+
+        /* --- CLIMATE ART SHOP ADDITIONS (MOBILE-FIRST GRID) --- */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 10px;
+        }
+        @media(min-width: 480px) {
+            .shop-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .product-card {
+            background: #ffffff;
+            border: 1px solid var(--light-brown-outline);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 8px 20px rgba(26, 17, 11, 0.02);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        .product-card::before {
+            content: ''; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px;
+            border: 1px dashed rgba(168, 137, 89, 0.15); pointer-events: none;
+            border-radius: 8px;
+            z-index: 1;
+        }
+
+        .product-image-container {
+            width: 100%;
+            padding-top: 100%; /* Square Aspect Ratio */
+            background-color: var(--wood-tone);
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-image-placeholder {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--light-brown-outline);
+            font-size: 2.5rem;
+            font-family: 'Poppins', sans-serif;
+            opacity: 0.6;
+        }
+
+        .product-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .product-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--black);
+            margin: 0 0 4px 0;
+            line-height: 1.3;
+        }
+
+        .product-price {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--heart-tone);
+            margin-bottom: 12px;
+        }
+
+        .product-description {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: var(--black);
+            opacity: 0.85;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .dm-order-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--white);
+            border: 1px solid var(--heart-tone);
+            color: var(--heart-tone);
+            padding: 12px 16px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .dm-order-btn:hover {
+            background: var(--heart-tone);
+            color: var(--white);
+            box-shadow: 0 6px 15px rgba(142, 60, 51, 0.25);
+        }
+
+        .dm-order-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .bookshelf-unit {
@@ -397,7 +519,6 @@
         .book-meta h4 { font-family: 'Poppins', sans-serif; font-weight: 500; margin: 0 0 6px 0; font-size: 0.95rem; color: var(--black); line-height: 1.4; }
         .book-meta p { font-family: 'Poppins', sans-serif; font-weight: 300; margin: 0; font-size: 0.82rem; color: var(--black); line-height: 1.5; opacity: 0.8; }
 
-        /* --- INSTAGRAM BADGE BUTTON --- */
         .insta-badge-btn {
             display: inline-flex;
             align-items: center;
@@ -525,7 +646,6 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* --- REDESIGNED HIGH-REALISM AIRPLANE --- */
         .airplane-container {
             position: absolute; width: 280px; height: 110px;
             pointer-events: none; z-index: 2;
@@ -558,18 +678,19 @@
         
         <div class="hero">
             <h1>Climate Casa</h1>
-            <div class="hero-tagline">House of Climate Positive Projects</div>
+            <div class="hero-tagline">Home to Climate Stories, Art & Gifts</div>
         </div>
 
         <div class="about-text-box">
-            <p class="main-text">Climate Casa began with a simple purpose: to educate people about climate and sustainability. What started as a platform for sharing climate knowledge has evolved into a space for creativity, curiosity, and impact. From storytelling and social initiatives to exploring the future of sustainable aviation, Climate Casa reflects the many ways sustainability can inspire, connect, and drive change.</p>
+            <p class="main-text">Made of keepsakes shaped from fallen leaves and twigs, storybooks that teach children to care for the earth, gifts that carry meaning as much as they carry dry fruits, and a curiosity for making even the skies a little kinder.</p>
             <span style="font-family: 'Cormorant Garamond', serif; color: var(--dark-beige); font-weight: 600;">~ Himanshi Shrimali, Founder</span>
         </div>
 
         <div class="casa-building">
-            <button class="window-btn" onclick="openShelves()">Climate Casa Collection</button>
-            <button class="window-btn" onclick="openKindPage()">Climate Kind</button>
-            <button class="window-btn" onclick="openAirPage()">Climate Air</button>
+            <button class="window-btn" onclick="openShelves()">Climate Casa Art</button>
+            <button class="window-btn" onclick="openTalesPage()">Climate Casa Tales</button>
+            <button class="window-btn" onclick="openAirPage()">Climate Casa Air</button>
+            <button class="window-btn" onclick="openKindPage()">Climate Casa Kind</button>
         </div>
 
         <div class="section">
@@ -584,29 +705,106 @@
         <div class="trademark">CLIMATE CASA ©️ 2023</div>
     </div>
 
+    <!-- CLIMATE CASA ART OVERLAY (REDESIGNED SHOP) -->
     <div id="shelves-overlay">
         <div class="close-btn" onclick="closeShelves()">✕ Close</div>
         <div class="shelf-container">
-            <h1 class="creative-title">Climate Casa Collection</h1>
-            <div class="order-hint">Where sustainability is crafted into stories and art.</div>
+            <h1 class="creative-title">Climate Casa Art</h1>
+            <div class="order-hint">Found a piece you love? Tap to order or gift it via Instagram DM.</div>
 
             <div class="library-room">
                 
-                <div class="intro-vintage-card">
-                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-top: 0; color: var(--black); font-weight: 700;">Climate Casa Collection</h2>
-                    <p class="main-text" style="font-size: 0.88rem; color: var(--black); max-width: 600px; margin: 0 auto 15px;">
-                        From fallen twigs and dried leaves to timeless handmade keepsakes, Climate Casa Collection gives nature's leftovers a second life. Rooted in Climate Casa's vision, every piece transforms overlooked materials into stories of renewal, reducing waste while inspiring a deeper connection with the natural world.
+                <div class="intro-vintage-card" style="padding: 25px 20px; margin-bottom: 10px;">
+                    <p class="main-text" style="font-size: 0.88rem; color: var(--black); max-width: 600px; margin: 0 auto;">
+                        Handcrafted keepsakes made with pressed flowers, thread art, dried botanicals, and thoughtfully gathered natural materials ~ giving nature’s forgotten fragments a beautiful second life..
                     </p>
-                    <a href="https://www.instagram.com/climatecasa/" class="insta-badge-btn" target="_blank">
-                        <svg class="insta-icon" viewBox="0 0 24 24">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                        <span>Explore the Climate Casa Collection</span>
-                    </a>
                 </div>
 
+                <!-- Product Display Grid -->
+                <div class="shop-grid">
+                    
+                    <!-- Product Item 1 -->
+                    <div class="product-card">
+                        <div class="product-image-container" style="background-image: url('img8.png');">
+                            <!-- Fallback UI icon design if background image path is unset -->
+                            <div class="img8.png"></div>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Threaded Flower Bouquet with Customised Message</h3>
+                            <div class="product-price">399/- (including deliverly charges)</div>
+                            <p class="product-description">Handcrafted threaded flowers with a customised message, available in elegant bouquet or basket arrangements. Perfect for birthdays, anniversaries, weddings, and heartfelt gifting.</p>
+                            <a href="https://www.instagram.com/climatecasa/" target="_blank" class="dm-order-btn" onclick="sendDmOrder('Botanical Keepsake Frame')">
+                                <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>
+                                <span>Tap to order</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Product Item 2 -->
+                    <div class="product-card">
+                        <div class="product-image-container" style="background-image: url('img100.png');">
+                            <div class="product-image-placeholder"></div>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Personalised Pressed Flower Art – Bouquet or Basket Style</h3>
+                            <div class="product-price">INR 399/- (including delivery charges)</div>
+                            <p class="product-description">Handcrafted pressed flower art available in a variety of real pressed flowers of your choice, paired with a customised message and arranged in an elegant bouquet or basket look.</p>
+                            <a href="https://www.instagram.com/climatecasa/" target="_blank" class="dm-order-btn" onclick="sendDmOrder('Twig & Leaf Art Piece')">
+                                <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>
+                                <span>Tap to Order</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Product Item 3 -->
+                    <div class="product-card">
+                        <div class="product-image-container" style="background-image: url('img11.png');">
+                            <div class="product-image-placeholder"></div>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Vintage Art in Antique Envelope – Personalised Nature Gift</h3>
+                            <div class="product-price">INR 399/- (including delivery charges)</div>
+                            <p class="product-description">Gift a small piece of vintage-inspired art that captures the beauty of nature, delicately paired with dried flowers and presented in an antique-style envelope. Add a customised message inside to make it a heartfelt keepsake, perfect for birthdays, anniversaries, thank-you gifts, and special occasions..</p>
+                            <a href="https://www.instagram.com/climatecasa/" target="_blank" class="dm-order-btn" onclick="sendDmOrder('Nature Remembrance Token')">
+                                <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>
+                                <span>Tap to order</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Product Item 4 -->
+                    <div class="product-card">
+                        <div class="product-image-container" style="background-image: url('img13.png');">
+                            <div class="product-image-placeholder"></div>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Woven Wings – Personalised Threaded Plane Cards</h3>
+                            <div class="product-price">INR 499/- (including delivery charges)</div>
+                            <p class="product-description">Gift your passenger princess or travel buddy a handcrafted threaded plane card, available in different designs and colours. Each card includes a customised message, making it a thoughtful keepsake for birthdays, farewells, first flights, anniversaries, and travel lovers.</p>
+                            <a href="https://www.instagram.com/climatecasa/" target="_blank" class="dm-order-btn" onclick="sendDmOrder('Custom Gift Hamper Bundle')">
+                                <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>
+                                <span>Tap to order</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div> <!-- End Shop Grid -->
+
+            </div>
+
+            <div class="wardrobe-footer-gap"></div>
+        </div>
+    </div>
+
+    <!-- CLIMATE CASA TALES OVERLAY -->
+    <div id="tales-overlay">
+        <div class="close-btn" onclick="closeTalesPage()">✕ Close</div>
+        <div class="shelf-container">
+            <h1 class="creative-title">Climate Casa Tales</h1>
+            <div class="order-hint">Eco-adventures and stories made to inspire the mind.</div>
+
+            <div class="library-room">
+                
                 <div class="bookshelf-unit">
                     <span class="shelf-headline">Eco-Adventure & Storybook Vault</span>
                     
@@ -622,7 +820,7 @@
                         <div class="book-icon">📜</div>
                         <div class="book-meta">
                             <h4>Tara and Her Tiny Treasures</h4>
-                            <p>An eco-illustrated storybook introducing young readers to the gentle world and core values behind Climate Casa Collection. Click to open on Amazon Kindle.</p>
+                            <p>An eco-illustrated storybook introducing young readers to the gentle world and core values behind Climate Casa Art. Click to open on Amazon Kindle.</p>
                         </div>
                     </a>
                 </div>
@@ -633,11 +831,12 @@
         </div>
     </div>
 
+    <!-- CLIMATE CASA KIND OVERLAY -->
     <div id="kind-overlay">
         <div class="close-btn" onclick="closeKindPage()">✕ Close</div>
         <div class="shelf-container">
-            <h1 class="creative-title">Climate Kind</h1>
-            <div class="order-hint">A collection of purpose-driven projects inspired by mindful living</div>
+            <h1 class="creative-title">Climate Casa Kind</h1>
+            <div class="order-hint">Dedicated to mindful living, sustainable habits, acts of kindness and a life unbounded.</div>
 
             <div class="library-room">
                 
@@ -673,6 +872,7 @@
         </div>
     </div>
 
+    <!-- CLIMATE CASA AIR OVERLAY -->
     <div id="air-overlay">
         <div class="close-btn" onclick="closeAirPage()">✕ Close</div>
         
@@ -680,7 +880,6 @@
         <div class="fog-bg fog-2"></div>
         
         <div class="airplane-container">
-            <!-- Refined, Proportionally Balanced Commercial Eco-Liner Jet Vector -->
             <svg viewBox="0 0 300 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="fuselageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -693,95 +892,105 @@
                         <stop offset="100%" stop-color="#a39887" />
                     </linearGradient>
                 </defs>
-                <!-- Tail Vertical Stabilizer Fin -->
                 <path d="M225 36 L248 10 C250 7, 253 7, 254 11 L252 38 Z" fill="var(--dark-beige)" />
                 <path d="M242 36 L250 14 L253 36 Z" fill="#9e8f7d" opacity="0.4" />
-                
-                <!-- Rear Horizontal Stabilizer Wing -->
                 <path d="M238 43 L260 41 C263 41, 263 44, 260 45 L236 46 Z" fill="#a39887" />
-
-                <!-- Main Fuselage Body Core -->
                 <path d="M25 46 C55 35, 95 34, 155 34 C215 34, 245 39, 254 44 C260 47, 260 51, 252 53 C240 56, 195 57, 145 57 C85 57, 45 54, 28 51 C18 49, 15 47, 25 46 Z" fill="url(#fuselageGrad)" />
-                
-                <!-- Cockpit Windows Flight Deck -->
                 <path d="M34 44 C38 42, 45 42, 48 43 L45 46 C41 46, 36 46, 34 44 Z" fill="#1a110b" opacity="0.85" />
-                
-                <!-- Minimal Passenger Cabin Windows Line -->
                 <g fill="#1a110b" opacity="0.4">
                     <circle cx="68" cy="44" r="1.2" /><circle cx="76" cy="44" r="1.2" /><circle cx="84" cy="44" r="1.2" />
                     <circle cx="92" cy="44" r="1.2" /><circle cx="100" cy="44" r="1.2" /><circle cx="108" cy="44" r="1.2" />
                     <circle cx="116" cy="44" r="1.2" /><circle cx="124" cy="44" r="1.2" /><circle cx="132" cy="44" r="1.2" />
-                    <circle cx="160" cy="44" r="1.2" /><circle cx="168" cy="44" r="1.2" /><circle cx="176" cy="44" r="1.2" />
-                    <circle cx="184" cy="44" r="1.2" /><circle cx="192" cy="44" r="1.2" /><circle cx="200" cy="44" r="1.2" />
+                    <circle cx="140" cy="44" r="1.2" /><circle cx="148" cy="44" r="1.2" /><circle cx="156" cy="44" r="1.2" />
+                    <circle cx="164" cy="44" r="1.2" /><circle cx="172" cy="44" r="1.2" /><circle cx="180" cy="44" r="1.2" />
+                    <circle cx="188" cy="44" r="1.2" /><circle cx="196" cy="44" r="1.2" /><circle cx="204" cy="44" r="1.2" />
+                    <circle cx="212" cy="44" r="1.2" /><circle cx="220" cy="44" r="1.2" />
                 </g>
-
-                <!-- Far Side Main Wing (Partial Projection) -->
-                <path d="M125 35 L158 16 C161 14, 164 16, 162 19 L142 35 Z" fill="#b0a696" opacity="0.7" />
-
-                <!-- Near Side Main Wing (Swept Monoplane structure) -->
-                <path d="M112 48 L170 78 C173 80, 177 79, 176 75 L152 48 Z" fill="url(#wingGrad)" />
-                
-                <!-- Under-Wing Propulsion Jet Engine Intake & Pod -->
-                <path d="M124 55 C124 51, 138 51, 144 54 C148 56, 146 62, 138 62 C132 62, 124 59, 124 55 Z" fill="#7a6e5f" />
-                <ellipse cx="126" cy="55" rx="2" ry="3" fill="#1a110b" />
+                <path d="M112 55 C112 50, 134 50, 134 55 C134 60, 112 60, 112 55 Z" fill="#4a3b32" />
+                <path d="M110 55 C110 52, 116 52, 116 55 C116 58, 110 58, 110 55 Z" fill="#1a110b" />
+                <path d="M124 51 L118 45 L124 45 Z" fill="#a39887" />
+                <path d="M96 46 L148 68 C152 70, 154 69, 151 66 L124 44 Z" fill="url(#wingGrad)" />
+                <path d="M148 68 L124 44 L121 44 L146 67 Z" fill="#ffffff" opacity="0.3" />
             </svg>
         </div>
 
         <div class="air-container">
-            <div class="air-title">Climate Air</div>
-            <div class="air-subtitle">Your Journey into Sustainable Aviation</div>
+            <h1 class="air-title">Climate Casa Air</h1>
             
             <div class="air-card">
-                <h3 class="glowing-air-header">Flying Toward Net Zero</h3>
-                <p class="main-text" style="font-size: 0.88rem; color: var(--black); margin-bottom: 0;">
-                    Sustainable aviation is more than a destination - it's a journey.
-Explore the innovations, breakthroughs, and conversations shaping what's next.
-For a future where flight and sustainability can coexist.
-                </p>
-                <a href="https://drive.google.com/drive/folders/1v4JjcWp349pl8Zrd1Ga3UGXVa9OT5Lx-" class="takeoff-btn" target="_blank">Ready For Take Off ?</a>
+                <p class="main-text" style="font-size: 0.92rem; margin-bottom: 0;">A slow, ongoing collection of articles, journeys and conversations that spark curiosity around sustainable aviation. Each one finds its way here in its own time, added by someone who had something honest to say about flying more consciously.</p>
+                <a href="https://climatecasa.github.io/Air/" class="takeoff-btn" target="_blank">Ready for Take-off</a>
             </div>
+            
+            <div class="wardrobe-footer-gap"></div>
         </div>
     </div>
 
     <script>
         function openDoor() {
             document.getElementById('entrance').classList.add('opened');
-            setTimeout(() => {
+            setTimeout(function() {
                 document.getElementById('content').classList.add('reveal');
             }, 600);
         }
 
+        // Helper tracking function to log or alert DM destination behavior
+        function sendDmOrder(productName) {
+            // Note: Instagram's web application structure doesn't support universal programmatic body payload injection inside query profiles via basic window links,
+            // but this helps inform users or log target choices seamlessly contextually.
+            console.log("Redirecting order intent for product: " + productName);
+        }
+
+        // Climate Casa Art
         function openShelves() {
             document.getElementById('content').style.display = 'none';
             document.getElementById('shelves-overlay').style.display = 'block';
             window.scrollTo(0, 0);
+            document.body.style.overflow = 'hidden';
         }
-
         function closeShelves() {
             document.getElementById('shelves-overlay').style.display = 'none';
             document.getElementById('content').style.display = 'block';
+            document.body.style.overflow = 'auto';
         }
 
+        // Climate Casa Tales
+        function openTalesPage() {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('tales-overlay').style.display = 'block';
+            window.scrollTo(0, 0);
+            document.body.style.overflow = 'hidden';
+        }
+        function closeTalesPage() {
+            document.getElementById('tales-overlay').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Climate Casa Kind
         function openKindPage() {
             document.getElementById('content').style.display = 'none';
             document.getElementById('kind-overlay').style.display = 'block';
             window.scrollTo(0, 0);
+            document.body.style.overflow = 'hidden';
         }
-
         function closeKindPage() {
             document.getElementById('kind-overlay').style.display = 'none';
             document.getElementById('content').style.display = 'block';
+            document.body.style.overflow = 'auto';
         }
 
+        // Climate Casa Air
         function openAirPage() {
             document.getElementById('content').style.display = 'none';
             document.getElementById('air-overlay').style.display = 'block';
             window.scrollTo(0, 0);
+            document.body.style.overflow = 'hidden';
         }
-
         function closeAirPage() {
             document.getElementById('air-overlay').style.display = 'none';
             document.getElementById('content').style.display = 'block';
+            document.body.style.overflow = 'auto';
         }
     </script>
 </body>
