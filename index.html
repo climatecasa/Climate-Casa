@@ -16,7 +16,7 @@
             --wardrobe-border: #d6c6b7;
             --light-brown-outline: #c5b4a2;
             --black: #1a110b;
-            
+
             /* Structural Theme updates */
             --illuminating-beige: #d9cbb6;
             ---rust-window: #fcfbf4;
@@ -24,7 +24,7 @@
             --gold-glow: #f0e2b6;
             --brown-gold-glow: #a88959;
             --airplane-beige: #dcd0bc;
-            
+
             /* Updated Heart Shade: Dark Rust Red */
             --heart-tone: #8e3c33;
         }
@@ -48,7 +48,7 @@
         .door-frame {
             position: relative; width: 240px; height: 400px; background: var(--white);
             border-radius: 120px 120px 5px 5px; display: flex; overflow: hidden;
-            border: 10px solid var(--light-brown-outline); 
+            border: 10px solid var(--light-brown-outline);
             box-shadow: inset 0 0 10px rgba(255,255,255,0.4), 0 25px 50px rgba(0, 0, 0, 0.04);
         }
         .door-panel {
@@ -56,33 +56,33 @@
             transition: transform 2.2s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative; border: 0.5px solid rgba(0,0,0,0.03);
         }
-        
-        .knocker-focal { 
-            position: absolute; z-index: 10; top: 50%; left: 50%; 
-            transform: translate(-50%, -50%); 
-            display: flex; flex-direction: column; align-items: center; 
+
+        .knocker-focal {
+            position: absolute; z-index: 10; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex; flex-direction: column; align-items: center;
         }
-        .heart-knocker { 
+        .heart-knocker {
             width: 24px; height: 24px;
             background-color: var(--heart-tone);
             transform: rotate(-45deg); position: relative;
             animation: heartGlowPulse 2.5s ease-in-out infinite alternate;
         }
-        .heart-knocker::before, .heart-knocker::after { 
-            content: ""; width: 24px; height: 24px; 
-            background-color: var(--heart-tone); 
-            border-radius: 50%; position: absolute; 
+        .heart-knocker::before, .heart-knocker::after {
+            content: ""; width: 24px; height: 24px;
+            background-color: var(--heart-tone);
+            border-radius: 50%; position: absolute;
             animation: heartGlowPulseColor 2.5s ease-in-out infinite alternate;
         }
-        .heart-knocker::before { top: -12px; left: 0; } 
+        .heart-knocker::before { top: -12px; left: 0; }
         .heart-knocker::after { left: 12px; top: 0; }
 
         @keyframes heartGlowPulse {
-            0% { 
+            0% {
                 background-color: var(--heart-tone);
                 box-shadow: 0 0 4px rgba(142, 58, 36, 0);
             }
-            100% { 
+            100% {
                 background-color: var(--heart-tone);
                 box-shadow: -4px 4px 20px rgba(142, 58, 36, 0.7);
             }
@@ -92,9 +92,9 @@
             100% { background-color: var(--heart-tone); }
         }
 
-        .tap-invitation { 
-            color: var(--black); font-family: 'Cormorant Garamond', serif; 
-            font-style: italic; font-size: 0.88rem; position: absolute; top: -40px; 
+        .tap-invitation {
+            color: var(--black); font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 0.88rem; position: absolute; top: -40px;
             white-space: nowrap; animation: popUp 2s infinite ease-in-out;
             letter-spacing: 0.5px;
         }
@@ -104,24 +104,25 @@
         }
 
         .door-tagline { margin-top: 25px; font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--black); font-size: 0.95rem; letter-spacing: 1px; text-align: center; }
-        
+
         .opened .door-panel:nth-child(1) { transform: translateX(-105%); }
         .opened .door-panel:nth-child(2) { transform: translateX(105%); }
         .opened { opacity: 0; visibility: hidden; }
 
         /* --- MAIN CONTENT CONTAINER --- */
-        #content { opacity: 0; padding: 80px 24px 60px; max-width: 600px; margin: 0 auto; transition: opacity 1.8s ease; text-align: center; }
+        #content { opacity: 0; padding: 90px 24px 60px; max-width: 560px; margin: 0 auto; transition: opacity 1.8s ease; text-align: center; }
         .reveal { opacity: 1 !important; }
-        
+
         /* --- BRAND TEXT ANIMATION WITH GLOW --- */
-        .hero h1 { 
-            font-family: 'Cormorant Garamond', serif; 
-            font-size: 2.6rem; 
-            margin: 0; 
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.75rem;
+            margin: 0;
             color: var(--black);
             position: relative;
             display: inline-block;
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .reveal .hero h1 {
@@ -168,22 +169,37 @@
             100% { transform: scale(1) rotate(180deg); opacity: 1; }
         }
 
-        .hero-tagline { letter-spacing: 2px; text-transform: uppercase; font-size: 0.72rem; margin-top: 10px; color: var(--black); margin-bottom: 40px; opacity: 0.85; }
+        .hero-tagline { letter-spacing: 2.5px; text-transform: uppercase; font-size: 0.7rem; margin-top: 12px; color: var(--black); margin-bottom: 8px; opacity: 0.75; font-family: 'Poppins', sans-serif; font-weight: 400; }
 
-        .about-text-box { margin-bottom: 40px; line-height: 1.8; color: var(--black); font-size: 0.96rem; }
+        .hero-rule { width: 46px; height: 1px; background: var(--light-brown-outline); margin: 22px auto 34px; opacity: 0.9; }
+
+        .about-text-box { margin-bottom: 46px; line-height: 1.85; color: var(--black); font-size: 0.98rem; }
+        .about-text-box .main-text { max-width: 440px; margin: 0 auto; }
+
+        .founder-signature { display: block; margin-top: 18px; font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--dark-beige); font-weight: 600; font-size: 0.92rem; }
 
         /* --- CASA BOUNDARY --- */
         .casa-building {
             position: relative;
             width: 100%;
-            max-width: 380px;
-            margin: 45px auto;
+            max-width: 360px;
+            margin: 50px auto;
             background: var(--cream);
-            border: 1px solid var(--light-brown-outline); 
-            padding: 45px 30px;
+            border: 1px solid var(--light-brown-outline);
+            padding: 40px 34px;
             box-sizing: border-box;
             box-shadow: 0 20px 40px rgba(26, 17, 11, 0.03), 0 1px 3px rgba(0,0,0,0.01);
-            border-radius: 12px;
+            border-radius: 14px;
+        }
+
+        .casa-building-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.92rem;
+            color: var(--black);
+            opacity: 0.7;
+            margin: 0 0 24px;
+            text-align: center;
         }
 
         /* --- RECTANGULAR WINDOW PANES --- */
@@ -194,11 +210,11 @@
             background: var(--light-beige);
             border: 1px solid rgba(26, 17, 11, 0.12);
             border-radius: 6px;
-            margin: 0 auto 16px;
+            margin: 0 auto 18px;
             width: 95%;
-            height: 60px;
+            height: 66px;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             letter-spacing: 0.5px;
             color: var(--black);
             cursor: pointer;
@@ -235,8 +251,8 @@
         .window-btn:last-child { margin-bottom: 0; }
 
         /* --- EXTERIOR DECORATIVE SECTIONS --- */
-        .section { 
-            background: var(--cream); padding: 35px 30px; border-radius: 12px; margin-top: 40px; 
+        .section {
+            background: var(--cream); padding: 38px 32px; border-radius: 14px; margin-top: 44px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.01); border: 1px solid rgba(26, 17, 11, 0.05);
             position: relative;
         }
@@ -248,17 +264,17 @@
             display: inline-block;
             margin-top: 24px;
         }
-        .button { 
-            display: inline-block; 
-            padding: 12px 40px; 
-            background: var(--light-beige); 
-            color: var(--black); 
-            text-decoration: none; 
-            font-size: 0.75rem; 
-            letter-spacing: 1.5px; 
-            text-transform: uppercase; 
-            cursor: pointer; 
-            border: 1px solid var(--light-brown-outline); 
+        .button {
+            display: inline-block;
+            padding: 12px 40px;
+            background: var(--light-beige);
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: 1px solid var(--light-brown-outline);
             border-radius: 40px;
             font-weight: 600;
             box-shadow: 0 2px 6px rgba(0,0,0,0.02);
@@ -275,17 +291,17 @@
         }
 
         /* --- INTERIOR OVERLAYS --- */
-        #shelves-overlay, #tales-overlay, #kind-overlay, #air-overlay { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+        #tales-overlay, #air-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, #fdfbf7 0%, #e8dec9 100%);
             background-image: radial-gradient(rgba(26, 17, 11, 0.03) 1px, transparent 0);
             background-size: 25px 25px;
-            z-index: 3500; display: none; overflow-y: auto; padding: 80px 0 0px; 
+            z-index: 3500; display: none; overflow-y: auto; padding: 80px 0 0px;
         }
         .shelf-container { max-width: 650px; margin: 0 auto; padding: 0 24px; position: relative; }
-        
+
         .creative-title {
-            font-family: 'Cormorant Garamond', serif; 
+            font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
             font-size: 2.4rem;
             color: var(--black);
@@ -301,7 +317,7 @@
         }
 
         .order-hint { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--black); text-align: center; margin-bottom: 40px; font-weight: 400; font-size: 1rem; opacity: 0.8; }
-        
+
         .library-room {
             display: flex;
             flex-direction: column;
@@ -310,257 +326,10 @@
             clear: both;
         }
 
-        /* --- CARDS & SHELVES --- */
-        .intro-vintage-card {
-            background: #ffffff; 
-            border: 1px solid var(--light-brown-outline);
-            border-radius: 12px;
-            padding: 35px 30px;
-            text-align: center;
-            position: relative;
-            box-sizing: border-box;
-            box-shadow: 0 10px 30px rgba(26, 17, 11, 0.02);
-        }
-        .intro-vintage-card::before {
-            content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px;
-            border: 1px dashed rgba(168, 137, 89, 0.2); pointer-events: none;
-            border-radius: 6px;
-        }
-
-        /* --- CLIMATE ART SHOP ADDITIONS (MOBILE-FIRST GRID) --- */
-        .shop-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            margin-top: 10px;
-        }
-        @media(min-width: 480px) {
-            .shop-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        .product-card {
-            background: #ffffff;
-            border: 1px solid var(--light-brown-outline);
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 8px 20px rgba(26, 17, 11, 0.02);
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-        .product-card::before {
-            content: ''; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px;
-            border: 1px dashed rgba(168, 137, 89, 0.15); pointer-events: none;
-            border-radius: 8px;
-            z-index: 1;
-        }
-
-        .product-image-container {
-            width: 100%;
-            padding-top: 100%; /* Square Aspect Ratio */
-            background-color: var(--wood-tone);
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .product-image-placeholder {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--light-brown-outline);
-            font-size: 2.5rem;
-            font-family: 'Poppins', sans-serif;
-            opacity: 0.6;
-        }
-
-        .product-details {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            text-align: left;
-        }
-
-        .product-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--black);
-            margin: 0 0 4px 0;
-            line-height: 1.3;
-        }
-
-        .product-price {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--heart-tone);
-            margin-bottom: 12px;
-        }
-
-        .product-description {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 300;
-            font-size: 0.82rem;
-            line-height: 1.5;
-            color: var(--black);
-            opacity: 0.85;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .dm-order-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: var(--white);
-            border: 1px solid var(--heart-tone);
-            color: var(--heart-tone);
-            padding: 12px 16px;
-            border-radius: 25px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            z-index: 2;
-        }
-
-        .dm-order-btn:hover {
-            background: var(--heart-tone);
-            color: var(--white);
-            box-shadow: 0 6px 15px rgba(142, 60, 51, 0.25);
-        }
-
-        .dm-order-btn svg {
-            width: 14px;
-            height: 14px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .bookshelf-unit {
-            background: #ffffff; 
-            border: 1px solid var(--light-brown-outline);
-            border-radius: 12px;
-            padding: 35px 30px 30px;
-            box-sizing: border-box;
-            position: relative;
-            font-family: 'Cormorant Garamond', sans-serif;
-            box-shadow: 0 10px 30px rgba(26, 17, 11, 0.02);
-        }
-        .bookshelf-unit::before {
-            content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px;
-            border: 1px dashed rgba(168, 137, 89, 0.2); pointer-events: none;
-            border-radius: 6px;
-        }
-        .bookshelf-unit::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 8px;
-            background: #c5b4a2;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.02);
-            border-radius: 0 0 12px 12px;
-        }
-
-        .shelf-headline {
-            font-family: 'Cormorant Garamond', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--black);
-            margin-bottom: 24px;
-            display: block;
-            text-align: left;
-            border-bottom: 1px solid rgba(168, 137, 89, 0.15);
-            padding-bottom: 8px;
-        }
-
-        .book-link-button {
-            display: flex;
-            align-items: center;
-            background: #ffffff;
-            border: 1px solid rgba(26, 17, 11, 0.12);
-            border-left: 4px solid var(--black);
-            padding: 20px;
-            margin-bottom: 16px;
-            border-radius: 0 8px 8px 0;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-            text-align: left;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 2;
-        }
-        .book-link-button:last-of-type { margin-bottom: 8px; }
-        .book-link-button:hover {
-            transform: translateX(4px);
-            box-shadow: 0 8px 20px rgba(217, 203, 182, 0.25);
-            background: #fffefb;
-            border-color: var(--dark-beige);
-        }
-
-        .book-icon { font-size: 1.6rem; margin-right: 18px; color: var(--dark-beige); flex-shrink: 0; }
-        .book-meta { flex-grow: 1; }
-        .book-meta h4 { font-family: 'Poppins', sans-serif; font-weight: 500; margin: 0 0 6px 0; font-size: 0.95rem; color: var(--black); line-height: 1.4; }
-        .book-meta p { font-family: 'Poppins', sans-serif; font-weight: 300; margin: 0; font-size: 0.82rem; color: var(--black); line-height: 1.5; opacity: 0.8; }
-
-        .insta-badge-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #ffffff; 
-            color: var(--black);
-            text-decoration: none;
-            padding: 10px 24px;
-            font-size: 0.78rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            border-radius: 25px;
-            font-weight: 600;
-            margin-top: 15px;
-            border: 1px solid rgba(26, 17, 11, 0.2); 
-            transition: all 0.3s ease;
-        }
-        
-        .insta-icon {
-            width: 15px;
-            height: 15px;
-            stroke: var(--black);
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-            transition: stroke 0.3s ease;
-        }
-
-        .insta-badge-btn:hover {
-            background: var(--black);
-            color: var(--white);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-color: var(--black);
-        }
-        .insta-badge-btn:hover .insta-icon { stroke: var(--white); }
-
         .close-btn { position: fixed; top: 24px; right: 24px; font-family: 'Cormorant Garamond', sans-serif; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; z-index: 4000; background: var(--white); padding: 8px 16px; border-radius: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(26, 17, 11, 0.05); color: var(--black); transition: all 0.3s ease; }
         .close-btn:hover { background: var(--black); color: var(--white); }
         .wardrobe-footer-gap { height: 60px; width: 100%; }
-        
+
         /* --- CLIMATE AIR PAGE STRUCTURE --- */
         #air-overlay {
             background: linear-gradient(180deg, #bfe0f6 0%, #d9edfa 30%, #eef7fc 58%, #fbf8f1 82%, #f7f3eb 100%);
@@ -683,9 +452,9 @@
         }
 
         .glowing-air-header {
-            font-family: 'Cormorant Garamond', serif; 
-            margin-top: 0; 
-            font-size: 1.3rem; 
+            font-family: 'Cormorant Garamond', serif;
+            margin-top: 0;
+            font-size: 1.3rem;
             color: var(--black);
             font-weight: 600;
             animation: textGlowPulse 3s ease-in-out infinite alternate;
@@ -695,15 +464,15 @@
             position: absolute; top: 0; left: 0; width: 200%; height: 100%;
             pointer-events: none;
         }
-        .fog-1 { 
+        .fog-1 {
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400"><path d="M0,200 Q150,130 300,200 T600,200 T900,200 L1000,200 L1000,400 L0,400 Z" fill="rgba(255,255,255,0.65)"/></svg>');
-            background-size: 50% 100%; opacity: 0.9; 
-            animation: driftFog 32s linear infinite; bottom: 0; height: 70%; 
+            background-size: 50% 100%; opacity: 0.9;
+            animation: driftFog 32s linear infinite; bottom: 0; height: 70%;
         }
-        .fog-2 { 
+        .fog-2 {
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400"><path d="M0,250 Q120,180 280,250 T580,250 T880,250 L1000,250 L1000,400 L0,400 Z" fill="rgba(255,255,255,0.4)"/></svg>');
             background-size: 50% 100%; opacity: 0.75;
-            animation: driftFog 46s linear infinite reverse; bottom: -20px; height: 90%; 
+            animation: driftFog 46s linear infinite reverse; bottom: -20px; height: 90%;
         }
 
         @keyframes driftFog {
@@ -722,58 +491,6 @@
             50% { top: 16%; transform: scale(0.75) rotate(0.5deg); }
             100% { right: 120%; top: 26%; transform: scale(0.55) rotate(-1.5deg); }
         }
-
-        /* --- CLIMATE KIND PAGE STRUCTURE (dedicated classes, does not touch shared card styles) --- */
-        .kind-feature-card {
-            background: #ffffff;
-            border: 1px solid var(--light-brown-outline);
-            border-radius: 14px;
-            padding: 34px 28px;
-            box-sizing: border-box;
-            position: relative;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(26, 17, 11, 0.03);
-        }
-        .kind-feature-card::before {
-            content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px;
-            border: 1px dashed rgba(168, 137, 89, 0.2); pointer-events: none; border-radius: 8px;
-        }
-        .kind-image-box {
-            width: 130px; height: 130px;
-            margin: 0 auto 22px;
-            border-radius: 14px;
-            background: var(--wood-tone);
-            border: 3px solid var(--white);
-            outline: 1px solid var(--light-brown-outline);
-            display: flex; align-items: center; justify-content: center;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(26,17,11,0.06);
-            position: relative;
-            z-index: 2;
-        }
-        .kind-image-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .kind-image-placeholder {
-            font-family: 'Poppins', sans-serif; font-size: 0.68rem; letter-spacing: 0.5px;
-            color: var(--light-brown-outline); text-transform: uppercase; text-align: center;
-            padding: 0 12px; opacity: 0.9; line-height: 1.4;
-        }
-        .kind-title {
-            font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.4rem;
-            color: var(--black); margin: 0 0 12px 0; position: relative; z-index: 2;
-        }
-        .kind-desc {
-            font-family: 'Cormorant Garamond', sans-serif; line-height: 1.8; font-size: 0.92rem;
-            color: var(--black); max-width: 460px; margin: 0 auto 20px; position: relative; z-index: 2;
-        }
-        .kind-cta-btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: #ffffff; color: var(--black); text-decoration: none;
-            padding: 10px 24px; font-size: 0.78rem; letter-spacing: 0.5px; text-transform: uppercase;
-            border-radius: 25px; font-weight: 600; border: 1px solid rgba(26, 17, 11, 0.2);
-            transition: all 0.3s ease; position: relative; z-index: 2;
-        }
-        .kind-cta-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .kind-cta-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
         /* --- CLIMATE STORIES PAGE STRUCTURE (dedicated classes, does not touch shared card styles) --- */
         #tales-overlay {
@@ -843,125 +560,35 @@
     </div>
 
     <div id="content">
-        
+
         <div class="hero">
             <h1>Climate Casa</h1>
-            <div class="hero-tagline">Home to Climate Stories, Art & Gifts</div>
+            <div class="hero-tagline">Home to Climate Stories &amp; Skies</div>
         </div>
 
+        <div class="hero-rule"></div>
+
         <div class="about-text-box">
-            <p class="main-text">Through keepsakes shaped from fallen leaves and twigs, storybooks that inspire children to care for the earth, meaningful gifts, and a curiosity for making even the skies a little kinder, Climate Casa celebrates creativity with purpose.</p>
-            <span style="font-family: 'Cormorant Garamond', serif; color: var(--dark-beige); font-weight: 600;">~ Himanshi Shrimali, Founder</span>
+            <p class="main-text">Through storybooks that inspire children to care for the earth, and a quiet curiosity for making even the skies a little kinder, Climate Casa celebrates creativity with purpose.</p>
+            <span class="founder-signature">~ Himanshi Shrimali, Founder</span>
         </div>
 
         <div class="casa-building">
-            <button class="window-btn" onclick="openShelves()">Climate Keepsakes</button>
+            <p class="casa-building-label">Step through a door</p>
             <button class="window-btn" onclick="openTalesPage()">Climate Stories</button>
             <button class="window-btn" onclick="openAirPage()">Climate Air</button>
-            <button class="window-btn" onclick="openKindPage()">Climate Kind</button>
         </div>
 
         <div class="section">
             <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin-top: 0;">Keep Visiting Us</h2>
             <p class="main-text">Thank you for spending time in Climate Casa. The doors are always open ~ come back anytime for a spark of climate joy.</p>
-            
+
             <div class="butterfly-btn-wrapper">
                 <a href="https://www.linkedin.com/company/climate-casa/" class="button" target="_blank">Good Day</a>
             </div>
         </div>
 
         <div class="trademark">CLIMATE CASA ©️ 2023</div>
-    </div>
-
-    <!-- CLIMATE CASA ART OVERLAY (REDESIGNED SHOP) -->
-    <div id="shelves-overlay">
-        <div class="close-btn" onclick="closeShelves()">✕ Close</div>
-        <div class="shelf-container">
-            <h1 class="creative-title">Climate Keepsakes</h1>
-            <div class="order-hint">Found a piece you love? Tap to order or gift it through Instagram DM.</div>
-
-            <div class="library-room">
-                
-                <div class="intro-vintage-card" style="padding: 25px 20px; margin-bottom: 10px;">
-                    <p class="main-text" style="font-size: 0.88rem; color: var(--black); max-width: 600px; margin: 0 auto;">
-                        Handcrafted keepsakes made with pressed flowers, thread art, dried botanicals, and thoughtfully gathered natural materials ~ giving nature's forgotten fragments a beautiful second life.
-                    </p>
-                </div>
-
-                <!-- Product Display Grid -->
-                <div class="shop-grid">
-                    
-                    <!-- Product Item 1 -->
-                    <div class="product-card">
-                        <div class="product-image-container" style="background-image: url('img8.png');">
-                            <!-- Fallback UI icon design if background image path is unset -->
-                            <div class="img8.png"></div>
-                        </div>
-                        <div class="product-details">
-                            <h3 class="product-title">Threaded Flower Bouquet</h3>
-                            <div class="product-price">399/- (including deliverly charges)</div>
-                            <p class="product-description">Handcrafted threaded flowers with a customised message, available in elegant bouquet or basket arrangements. Perfect for birthdays, anniversaries, weddings, and heartfelt gifting.</p>
-                            <a href="https://www.instagram.com/climatecasa/" target="_blank" class="dm-order-btn" onclick="sendDmOrder('Botanical Keepsake Frame')">
-                                <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>
-                                <span>Tap to order</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Product Item 2 -->
-                    <div class="product-card">
-                        <div class="product-image-container" style="background-image: url('img100.png');">
-                            <div class="product-image-placeholder"></div>
-                        </div>
-                        <div class="product-details">
-                            <h3 class="product-title">Pressed Flower Keepsake</h3>
-                            <div class="product-price">INR 399/- (including delivery charges)</div>
-                            <p class="product-description">Handcrafted pressed flower art available in a variety of real pressed flowers of your choice, paired with a customised message and arranged in an elegant bouquet or basket look.</p>
-                            <a href="https://www.instagram.com/climatecasa/" target="_blank" class="dm-order-btn" onclick="sendDmOrder('Twig & Leaf Art Piece')">
-                                <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>
-                                <span>Tap to Order</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Product Item 3 -->
-                    <div class="product-card">
-                        <div class="product-image-container" style="background-image: url('img11.png');">
-                            <div class="product-image-placeholder"></div>
-                        </div>
-                        <div class="product-details">
-                            <h3 class="product-title">Vintage Envelope</h3>
-                            <div class="product-price">INR 399/- (including delivery charges)</div>
-                            <p class="product-description">Gift a small piece of vintage-inspired art that captures the beauty of nature, delicately paired with dried flowers and presented in an antique-style envelope. Add a customised message inside to make it a heartfelt keepsake, perfect for birthdays, anniversaries, thank-you gifts, and special occasions..</p>
-                            <a href="https://www.instagram.com/climatecasa/" target="_blank" class="dm-order-btn" onclick="sendDmOrder('Nature Remembrance Token')">
-                                <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>
-                                <span>Tap to order</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Product Item 4 -->
-                    <div class="product-card">
-                        <div class="product-image-container" style="background-image: url('img13.png');">
-                            <div class="product-image-placeholder"></div>
-                        </div>
-                        <div class="product-details">
-                            <h3 class="product-title">Woven Wings : Threaded Plane Cards</h3>
-                            <div class="product-price">INR 499/- (including delivery charges)</div>
-                            <p class="product-description">Celebrate a journey worth remembering with a handcrafted threaded plane card, available in a variety of designs and colours. Personalised with your custom message, each keepsake is thoughtfully created for first flights, farewells, anniversaries, birthdays, travel lovers, and meaningful milestones.</p>
-                            <a href="https://www.instagram.com/climatecasa/" target="_blank" class="dm-order-btn" onclick="sendDmOrder('Custom Gift Hamper Bundle')">
-                                <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>
-                                <span>Tap to order</span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div> <!-- End Shop Grid -->
-
-            </div>
-
-            <div class="wardrobe-footer-gap"></div>
-        </div>
     </div>
 
     <!-- CLIMATE CASA TALES OVERLAY -->
@@ -992,7 +619,7 @@
                         <div class="story-cover-box">
                             <!-- To add the cover, replace the line below with: <img src="kali-cover.jpg" alt="Climate Casa & The Adventures of Kali"> -->
                             <div class="story-cover-placeholder"><br>
-                                <img src="IMG_casa.jpeg" 
+                                <img src="IMG_casa.jpeg"
                                 alt="Climate Casa & The Adventures of Kali">
                             </div>
                         </div>
@@ -1012,63 +639,11 @@
                         </div>
                         <div class="story-details">
                             <h4 class="story-title">Tara and Her Tiny Treasures</h4>
-                            <p class="story-desc">An eco-illustrated storybook introducing young readers to the gentle world and core values behind Climate Casa Art.</p>
+                            <p class="story-desc">An eco-illustrated storybook introducing young readers to the gentle world and core values behind Climate Casa.</p>
                             <span class="story-read-link">📜 Read on Kindle</span>
                         </div>
                     </a>
 
-                </div>
-
-            </div>
-
-            <div class="wardrobe-footer-gap"></div>
-        </div>
-    </div>
-
-    <!-- CLIMATE CASA KIND OVERLAY -->
-    <div id="kind-overlay">
-        <div class="close-btn" onclick="closeKindPage()">✕ Close</div>
-        <div class="shelf-container">
-            <h1 class="creative-title">Climate Kind</h1>
-            <div class="order-hint">Dedicated to mindful living, sustainable habits, acts of kindness and a life unbounded.</div>
-
-            <div class="library-room">
-
-                <!-- Personal Blog: shown first, with an image box for a personal photo -->
-                <div class="kind-feature-card">
-                    <div class="kind-image-box">
-                        <!-- To add your photo, replace the line below with: <img src="your-image.jpg" alt="Himanshi Shrimali"> -->
-                        <div class="kind-image-placeholder">
-                            <img src="IMG_Tin.jpeg" alt="Himanshi Shrimali">
-                        </div>
-                    </div>
-                    <h2 class="kind-title">Personal Blog</h2>
-                    <p class="kind-desc">Embrace mindful choices with wholesome bakes, no bake confections, and conscious snack tins thoughtfully curated with rich, nutritious dry fruits. Every creation is beautifully packaged with a handwritten note of inspiration, bringing a little warmth, intention, and sustainable wellness to your everyday moments.
-</p>
-                    <a href="https://www.instagram.com/walnutandwonder/" class="kind-cta-btn" target="_blank">
-                        <svg viewBox="0 0 24 24">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                        <span>Follow My Journey</span>
-                    </a>
-                </div>
-
-                <!-- Unbound: shown second, matching image box and card style -->
-                <div class="kind-feature-card">
-                    <div class="kind-image-box">
-                        <!-- To add cover art, replace the line below with: <img src="unbound-cover.jpg" alt="Unbound"> -->
-                        <div class="kind-image-placeholder">
-                            <img src="IMG_U.jpeg" alt="Unbound">
-                        </div>
-                    </div>
-                    <h2 class="kind-title">Unbound</h2>
-                    <p class="kind-desc">Discover a celebration of individuality, conscious choices, freedom, and intentional living.</p>
-                    <a href="https://climatecasa.github.io/Unbound/" class="kind-cta-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>
-                        <span>Explore Unbound</span>
-                    </a>
                 </div>
 
             </div>
@@ -1151,7 +726,7 @@
                 <p class="main-text" style="font-size: 0.92rem; margin-bottom: 0;">A growing collection inspired by the world of flying, bringing together articles, conversations, personal reflections, and moments that deserve to be remembered. Whether it's a thoughtful idea, a memorable flight, or a different way of looking at the skies, every contribution finds a home here when the time feels right.</p>
                 <a href="https://climatecasa.github.io/Climate-Casa-Air/" class="takeoff-btn" target="_blank">Ready for Take-off</a>
             </div>
-            
+
             <div class="wardrobe-footer-gap"></div>
         </div>
     </div>
@@ -1164,26 +739,6 @@
             }, 600);
         }
 
-        // Helper tracking function to log or alert DM destination behavior
-        function sendDmOrder(productName) {
-            // Note: Instagram's web application structure doesn't support universal programmatic body payload injection inside query profiles via basic window links,
-            // but this helps inform users or log target choices seamlessly contextually.
-            console.log("Redirecting order intent for product: " + productName);
-        }
-
-        // Climate Casa Art
-        function openShelves() {
-            document.getElementById('content').style.display = 'none';
-            document.getElementById('shelves-overlay').style.display = 'block';
-            window.scrollTo(0, 0);
-            document.body.style.overflow = 'hidden';
-        }
-        function closeShelves() {
-            document.getElementById('shelves-overlay').style.display = 'none';
-            document.getElementById('content').style.display = 'block';
-            document.body.style.overflow = 'auto';
-        }
-
         // Climate Casa Tales
         function openTalesPage() {
             document.getElementById('content').style.display = 'none';
@@ -1193,19 +748,6 @@
         }
         function closeTalesPage() {
             document.getElementById('tales-overlay').style.display = 'none';
-            document.getElementById('content').style.display = 'block';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Climate Casa Kind
-        function openKindPage() {
-            document.getElementById('content').style.display = 'none';
-            document.getElementById('kind-overlay').style.display = 'block';
-            window.scrollTo(0, 0);
-            document.body.style.overflow = 'hidden';
-        }
-        function closeKindPage() {
-            document.getElementById('kind-overlay').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             document.body.style.overflow = 'auto';
         }
