@@ -345,6 +345,7 @@
             background: linear-gradient(180deg, #bfe0f6 0%, #d7ecfb 30%, #eef8fd 58%, #ffffff 82%, #ffffff 100%);
             overflow: hidden;
         }
+        #air-overlay.hub-open { overflow-y: auto; }
 
         /* Soft white sky clouds, purely CSS, drifting gently behind the plane */
         .sky-cloud {
@@ -406,6 +407,8 @@
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             padding: 80px 20px 40px; box-sizing: border-box; text-align: center; z-index: 10;
         }
+
+        #air-intro { width: 100%; display: flex; flex-direction: column; align-items: center; }
 
         .air-header-wrap {
             max-width: 480px;
@@ -555,6 +558,154 @@
         .story-read-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Poppins', sans-serif; font-size: 0.7rem; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; color: var(--light-blue-text); }
 
         .trademark { color: var(--black); font-size: 0.7rem; letter-spacing: 1.5px; margin-top: 60px; padding-bottom: 30px; text-align: center; font-weight: 500; opacity: 0.6; }
+
+        /* ============================================================ */
+        /* --- NEW: CLIMATE AIR "TAKE-OFF HUB" (Live Forum / Resources / */
+        /*      News & Articles / Contact) --------------------------- */
+        /* ============================================================ */
+
+        #takeoff-hub {
+            display: none;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .hub-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 22px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--light-blue-text);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .hub-back-link:hover { color: var(--royal-blue); }
+
+        .hub-title-wrap { margin-bottom: 26px; }
+        .hub-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem; font-weight: 600; color: var(--black); margin: 0 0 6px;
+        }
+        .hub-subtitle {
+            font-family: 'Cormorant Garamond', serif; font-style: italic;
+            font-size: 1rem; color: var(--light-blue-text); opacity: 0.95; margin: 0;
+        }
+
+        .hub-topbar {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto 34px;
+            max-width: 560px;
+        }
+        .hub-nav-btn {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--royal-blue);
+            background: rgba(255,255,255,0.75);
+            border: 1px solid var(--royal-blue);
+            border-radius: 30px;
+            padding: 11px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
+            box-sizing: border-box;
+        }
+        .hub-nav-btn:hover, .hub-nav-btn.active {
+            background: var(--royal-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(22,32,94,0.22);
+        }
+
+        .hub-panel { display: none; width: 100%; text-align: center; }
+        .hub-panel.active-panel { display: block; }
+
+        /* Landing panel art */
+        .hub-landing-art { width: 100%; max-width: 300px; margin: 6px auto 18px; }
+        .hub-landing-card {
+            background: rgba(255, 255, 255, 0.68);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(22, 32, 94, 0.15);
+            padding: 30px 30px 34px; border-radius: 20px; max-width: 480px;
+            box-shadow: 0 25px 50px rgba(22, 32, 94, 0.1), 0 1px 0 rgba(255,255,255,0.6) inset;
+            margin: 0 auto; box-sizing: border-box;
+        }
+
+        /* Resources / placeholder panel reuses air-card look */
+        .hub-placeholder-card {
+            background: rgba(255, 255, 255, 0.68);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(22, 32, 94, 0.15);
+            padding: 36px 30px; border-radius: 20px; max-width: 480px;
+            box-shadow: 0 25px 50px rgba(22, 32, 94, 0.1), 0 1px 0 rgba(255,255,255,0.6) inset;
+            margin: 0 auto; box-sizing: border-box;
+        }
+
+        /* News & Articles list */
+        .news-list { display: flex; flex-direction: column; gap: 16px; text-align: left; }
+        .news-card {
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid var(--sky-blue);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(22, 32, 94, 0.05);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .news-card[open] { box-shadow: 0 14px 26px rgba(22,32,94,0.1); border-color: var(--royal-blue); }
+        .news-card summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .news-card summary::-webkit-details-marker { display: none; }
+        .news-meta {
+            font-family: 'Poppins', sans-serif; font-size: 0.66rem; letter-spacing: 0.8px;
+            text-transform: uppercase; color: var(--light-blue-text); opacity: 0.95;
+        }
+        .news-title {
+            font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.18rem; color: var(--black); line-height: 1.35;
+        }
+        .news-excerpt {
+            font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 0.78rem; color: var(--black);
+            opacity: 0.75; line-height: 1.55; margin-top: 2px;
+        }
+        .news-toggle-label {
+            font-family: 'Poppins', sans-serif; font-size: 0.66rem; letter-spacing: 1px; text-transform: uppercase;
+            color: var(--royal-blue); font-weight: 600; margin-top: 8px;
+        }
+        .news-body {
+            padding: 4px 22px 26px; font-size: 0.92rem; line-height: 1.85; text-align: left; color: var(--black);
+            border-top: 1px solid var(--sky-blue); margin-top: 2px; padding-top: 18px;
+        }
+        .news-body h5 {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; margin: 20px 0 6px; color: var(--royal-blue);
+        }
+        .news-body h5:first-child { margin-top: 0; }
+        .news-body p { margin: 0 0 14px; font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 0.9rem; }
+
+        .hub-footer-gap { height: 40px; width: 100%; }
     </style>
 </head>
 <body>
@@ -582,14 +733,13 @@
 
         <div class="hero">
             <h1>Climate Casa</h1>
-            <div class="hero-tagline">Home for Climate Ideas &amp; Skies</div>
+            <div class="hero-tagline">Home to Climate Stories &amp; Skies</div>
         </div>
 
         <div class="hero-rule"></div>
 
         <div class="about-text-box">
-            <p class="main-text">Built around curiosity, creativity, research, and action, Climate Casa brings together sustainable aviation research, climate briefs, stories that make climate ideas relatable, resources that make knowledge accessible, and other projects exploring how we can build a more sustainable future.
-</p>
+            <p class="main-text">A house of climate possibilities, bringing together curiosity, creativity, research, and action. Climate Casa is a home to sustainable aviation research, climate briefs, stories, resources, and other projects exploring how we can build a more sustainable future. As the journey continues, there is always room for new ideas and new ways of creating a climate positive impact.</p>
             <span class="founder-signature">~ Himanshi Shrimali, Founder</span>
         </div>
 
@@ -767,14 +917,245 @@
         </div>
 
         <div class="air-container">
-            <div class="air-header-wrap">
-                <h1 class="air-title">Climate Air</h1>
-                <p class="air-subtitle">Where Every Journey Has a Story.</p>
+
+            <!-- ORIGINAL CLIMATE AIR INTRO (unchanged content, now wrapped so it can be hidden when the hub opens) -->
+            <div id="air-intro">
+                <div class="air-header-wrap">
+                    <h1 class="air-title">Climate Air</h1>
+                    <p class="air-subtitle">Where Every Journey Has a Story.</p>
+                </div>
+
+                <div class="air-card">
+                    <p class="main-text" style="font-size: 0.92rem; margin-bottom: 0;">A growing collection inspired by the world of flying, bringing together articles, conversations, personal reflections, and moments that deserve to be remembered. Whether it's a thoughtful idea, a memorable flight, or a different way of looking at the skies, every contribution finds a home here when the time feels right.</p>
+                    <button class="takeoff-btn" onclick="openTakeoffHub()">Ready for Take-off</button>
+                </div>
             </div>
 
-            <div class="air-card">
-                <p class="main-text" style="font-size: 0.92rem; margin-bottom: 0;">A growing collection inspired by the world of flying, bringing together articles, conversations, personal reflections, and moments that deserve to be remembered. Whether it's a thoughtful idea, a memorable flight, or a different way of looking at the skies, every contribution finds a home here when the time feels right.</p>
-                <a href="https://climatecasa.github.io/Climate-Casa-Air/" class="takeoff-btn" target="_blank">Ready for Take-off</a>
+            <!-- NEW: TAKE-OFF HUB — Live Forum / Resources / News & Articles / Contact -->
+            <div id="takeoff-hub">
+
+                <button class="hub-back-link" onclick="closeTakeoffHub()">← Back to Climate Air</button>
+
+                <div class="hub-title-wrap">
+                    <h2 class="hub-title">Climate Air by Climate Casa</h2>
+                    <p class="hub-subtitle">Choose where this journey takes you.</p>
+                </div>
+
+                <div class="hub-topbar">
+                    <a href="https://climatecasa.github.io/Climate-Casa-Air/" target="_blank" rel="noopener" class="hub-nav-btn" id="navbtn-forum" onclick="setActiveHubNav('navbtn-forum')">Live Forum</a>
+                    <button class="hub-nav-btn" id="navbtn-resources" onclick="showHubPanel('resources')">Resources</button>
+                    <button class="hub-nav-btn" id="navbtn-news" onclick="showHubPanel('news')">News &amp; Articles</button>
+                    <a href="https://www.linkedin.com/company/climate-casa/?viewAsMember=true" target="_blank" rel="noopener" class="hub-nav-btn" id="navbtn-contact" onclick="setActiveHubNav('navbtn-contact')">Contact</a>
+                </div>
+
+                <!-- LANDING PANEL (default view / aviation-themed art) -->
+                <div class="hub-panel active-panel" id="panel-landing">
+                    <div class="hub-landing-art">
+                        <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="compassGlow" cx="50%" cy="45%" r="60%">
+                                    <stop offset="0%" stop-color="#eef8fd" />
+                                    <stop offset="100%" stop-color="#d7ecfb" />
+                                </radialGradient>
+                            </defs>
+                            <circle cx="140" cy="105" r="86" fill="url(#compassGlow)" stroke="#1d3557" stroke-width="1.4" opacity="0.9"/>
+                            <circle cx="140" cy="105" r="62" fill="none" stroke="#1d3557" stroke-width="1" opacity="0.35"/>
+                            <g stroke="#1d3557" stroke-width="1" opacity="0.3">
+                                <line x1="140" y1="19" x2="140" y2="191"/>
+                                <line x1="54" y1="105" x2="226" y2="105"/>
+                            </g>
+                            <path d="M140 45 L150 100 L140 165 L130 100 Z" fill="#1d3557" opacity="0.9"/>
+                            <circle cx="140" cy="105" r="5" fill="#5c85ab"/>
+                            <text x="140" y="34" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" letter-spacing="2" fill="#1d3557" opacity="0.7">N</text>
+                            <text x="140" y="184" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" letter-spacing="2" fill="#1d3557" opacity="0.5">S</text>
+                            <text x="222" y="109" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" letter-spacing="2" fill="#1d3557" opacity="0.5">E</text>
+                            <text x="58" y="109" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" letter-spacing="2" fill="#1d3557" opacity="0.5">W</text>
+                            <path d="M40 178 C70 150, 95 168, 120 150 C150 128, 190 130, 232 96" stroke="#5c85ab" stroke-width="1.4" fill="none" stroke-dasharray="1 7" stroke-linecap="round" opacity="0.8"/>
+                            <g transform="translate(215,84) rotate(-28)">
+                                <path d="M0 8 C10 4, 26 4, 34 0 C26 4, 10 8, 0 16 C4 12, 4 10, 0 8 Z" fill="#1d3557"/>
+                                <path d="M8 6 L26 -6 C28 -7, 30 -6, 29 -3 L18 8 Z" fill="#1d3557"/>
+                                <path d="M8 12 L26 24 C28 25, 30 24, 29 21 L18 10 Z" fill="#1d3557" opacity="0.85"/>
+                            </g>
+                            <path d="M28 44 C36 42, 43 42, 46 43" stroke="#1f4d34" stroke-width="1.2" fill="none" opacity="0.7"/>
+                            <ellipse cx="248" cy="176" rx="18" ry="6" fill="#1f4d34" opacity="0.25"/>
+                        </svg>
+                    </div>
+                    <div class="hub-landing-card">
+                        <p class="main-text" style="font-size: 0.92rem; margin-bottom: 0;">This is Climate Air's control tower — pick a runway above. Head into the Live Forum for live conversation, browse Resources, catch up on News &amp; Articles, or reach out through Contact.</p>
+                    </div>
+                </div>
+
+                <!-- RESOURCES PANEL -->
+                <div class="hub-panel" id="panel-resources">
+                    <div class="hub-placeholder-card">
+                        <h3 class="glowing-air-header">Resources</h3>
+                        <p class="main-text" style="font-size: 0.92rem; margin-bottom: 0;">This shelf is still being stocked — soon it will hold SAF policy briefs, research links, and aviation sustainability resources worth bookmarking. Check back shortly, or follow along on LinkedIn for updates.</p>
+                        <a href="https://www.linkedin.com/company/climate-casa/?viewAsMember=true" class="takeoff-btn" target="_blank" rel="noopener">Explore More</a>
+                    </div>
+                </div>
+
+                <!-- NEWS & ARTICLES PANEL -->
+                <div class="hub-panel" id="panel-news">
+
+                    <div class="news-list">
+
+                        <details class="news-card">
+                            <summary>
+                                <span class="news-meta">August 2026 · Himanshi Shrimali</span>
+                                <span class="news-title">India's SAF Moment: From Policy Targets to a New Aviation Fuel Economy</span>
+                                <span class="news-excerpt">India's aviation sector is entering a new phase of its energy transition, as SAF moves from pilot projects toward policy backed implementation.</span>
+                                <span class="news-toggle-label">Read Article ▾</span>
+                            </summary>
+                            <div class="news-body">
+                                <p>India's aviation sector is entering a new phase of its energy transition. Sustainable Aviation Fuel, known as SAF, is moving from pilot projects and industry discussions toward policy backed implementation, opening opportunities across fuel production, agriculture, waste management, refining, and aviation itself.</p>
+
+                                <h5>A clearer SAF roadmap for India</h5>
+                                <p>In April 2026, the Government of India amended the Aviation Turbine Fuel Control Order to formally bring SAF blended aviation fuel within the regulatory framework for ATF. The government has also announced indicative SAF blending targets for international flights of 1% in 2027, 2% in 2028, and 5% in 2030.</p>
+                                <p>This shift matters because it moves SAF away from being purely a technology and sustainability discussion and toward becoming an emerging aviation fuel market with genuine regulatory demand behind it.</p>
+
+                                <h5>India has more than one SAF advantage</h5>
+                                <p>SAF can be produced from a range of alternative feedstocks, including agricultural residues, waste materials, and other renewable sources. This gives India an interesting opportunity, since its large agricultural economy and growing waste management ecosystem could become part of the SAF supply chain.</p>
+                                <p>Globally, most SAF production today relies on waste and residue based feedstocks through the HEFA pathway, while other pathways, including Alcohol to Jet and Power to Liquid fuels, are still developing. For India, this means SAF is not simply another fuel to produce — it could connect farm residues, waste streams, biotechnology, refineries, renewable energy, and aviation into one emerging industrial ecosystem.</p>
+
+                                <h5>From demonstration to commercial capability</h5>
+                                <p>India has already shown that domestic SAF production is technically possible. IndianOil's Panipat Refinery became the first Indian facility to receive ISCC CORSIA certification for SAF production in 2025. The certification covers sustainability, lifecycle emissions, and traceability, all of which matter more as international aviation enters the mandatory phase of CORSIA from 2027.</p>
+                                <p>Airline and fuel producer collaboration is also strengthening. In August 2025, Air India and IndianOil signed a memorandum of understanding for SAF supply, linking certified domestic production with airline demand and CORSIA requirements. Together, these developments suggest India is beginning to build both the supply side and the demand side of the SAF market at the same time.</p>
+
+                                <h5>The real challenge is scale</h5>
+                                <p>The next question is not whether SAF can be produced — it is whether India can produce enough of it at a competitive cost while holding to credible sustainability standards. Globally, IATA expects SAF production to reach around 2.4 million tonnes in 2026, representing only about 0.8% of annual jet fuel consumption.</p>
+                                <p>For India, scaling will require reliable feedstock supply, certification systems, refinery integration, logistics, investment, and technologies capable of moving beyond demonstration scale. Cost will remain another major barrier, since SAF is currently more expensive than conventional jet fuel because production is smaller in scale, feedstocks can be costly, and several production technologies are still developing.</p>
+
+                                <h5>What comes next for India?</h5>
+                                <p>India's SAF journey is increasingly becoming a systems challenge rather than a single fuel challenge. The country will need collaboration between policymakers, airlines, oil companies, refiners, technology providers, agricultural producers, waste management companies, researchers, and investors.</p>
+                                <p>If India builds that ecosystem successfully, SAF could become more than a decarbonisation tool for aviation. It could support domestic energy security, circular economy models, rural value creation, and a new low carbon industrial sector. India's SAF story is no longer only about flying greener — it is about building the fuel economy that could power the next generation of Indian aviation.</p>
+                            </div>
+                        </details>
+
+                        <details class="news-card">
+                            <summary>
+                                <span class="news-meta">August 2026 · Himanshi Shrimali</span>
+                                <span class="news-title">Flying on Neat SAF: What the Gulfstream and Rolls Royce Trials Reveal</span>
+                                <span class="news-excerpt">A high altitude test campaign asked what happens when an aircraft flies on 100% SAF, with nothing else in the tank.</span>
+                                <span class="news-toggle-label">Read Article ▾</span>
+                            </summary>
+                            <div class="news-body">
+                                <p>Most of the sustainable aviation fuel flying today is blended with conventional jet fuel, capped at up to 50%. A recent high altitude test campaign asked a more ambitious question: what happens when an aircraft flies on 100% SAF, with nothing else in the tank, at the altitudes business jets actually cruise at?</p>
+
+                                <h5>A flying laboratory over the Rockies</h5>
+                                <p>According to Rolls Royce's announcement, its Pearl 700 engines powered the first flight of a Gulfstream G800 running on 100% sustainable aviation fuel, as part of Gulfstream's high altitude flight test campaign. The goal was to see whether neat SAF could reduce the particle emissions that seed contrails at altitudes up to 50,000 feet, well above where most commercial airliners cruise but typical for business aviation.</p>
+                                <p>To capture the data, a specially modified G700, also powered by Pearl 700 engines, was converted into a flying emissions laboratory and flown in close formation with the G800. That pairing let researchers take precise, real world measurements of particulate matter and contrail forming conditions at altitude, rather than relying on ground based modeling alone.</p>
+
+                                <h5>A genuinely collaborative test</h5>
+                                <p>The campaign was led by Gulfstream Aerospace and carried out with the Federal Aviation Administration, NASA, the German Aerospace Center, Missouri University of Science and Technology, Rolls Royce, Aerodyne Research, Montana Renewables, and World Fuel Services. That mix of a manufacturer, an engine maker, government agencies, a university, and a SAF supplier reflects how much aviation's non CO2 climate questions, contrails among them, now sit at the intersection of engineering, atmospheric science, and fuel chemistry.</p>
+                                <p>The team compared three fuels in the same conditions: conventional Jet A, low sulfur Jet A, and neat HEFA based SAF, which contains no sulfur or aromatics. Preliminary results point to a significant, measurable drop in the particulate emissions linked to contrail formation when the aircraft ran on neat SAF.</p>
+
+                                <h5>Why non CO2 effects matter</h5>
+                                <p>Carbon dioxide gets most of the attention in aviation's climate conversation, but it is not the whole picture. Contrails and their induced cirrus clouds can trap heat in ways that, over short timeframes, rival or exceed the warming effect of an aircraft's CO2 emissions. Alan Newby, Rolls Royce's Director of Research and Technology, framed the findings as part of a broader pattern — sustainable aviation fuels paired with efficient engines are proving useful not only for decarbonisation but also for reducing certain non CO2 emissions.</p>
+
+                                <h5>What this means beyond the test flight</h5>
+                                <p>The results will feed into analytical models, future fuel standards, and operational strategies aimed at reducing air travel's environmental footprint. Just as importantly, the tests reaffirmed that Rolls Royce's in production Trent and business aviation engines can already run on 100% SAF, laying groundwork for eventual certification beyond today's 50% blend limit. Sustainable aviation fuel already has the potential to cut net CO2 lifecycle emissions by around 80% compared with conventional jet fuel — trials like this one are starting to show what neat SAF could add on top of that.</p>
+                                <p>A single high altitude flight will not settle the science on contrails, but it adds real, measured data to a conversation that has mostly relied on models — a meaningful step forward.</p>
+                            </div>
+                        </details>
+
+                        <details class="news-card">
+                            <summary>
+                                <span class="news-meta">August 2026 · Himanshi Shrimali</span>
+                                <span class="news-title">Playing by the Rules: How Strict Enforcement Is Shaping Aviation's Green Transition</span>
+                                <span class="news-excerpt">Regulators are attaching real financial consequences to sustainability mandates, forcing airlines to treat compliance seriously.</span>
+                                <span class="news-toggle-label">Read Article ▾</span>
+                            </summary>
+                            <div class="news-body">
+                                <p>For years, aviation sustainability targets were mostly aspirational. Airlines set voluntary goals, industry bodies published roadmaps, and progress depended largely on goodwill. That is changing. Regulators are now attaching real financial consequences to sustainability mandates, and the shift is forcing airlines and fuel suppliers to treat compliance as seriously as they treat safety or scheduling.</p>
+
+                                <h5>Germany draws a hard line</h5>
+                                <p>A clear example comes from Germany, where the German Federal Ministry of Transport is preparing to fine airlines €1,332 per tonne of sustainable aviation fuel they fail to use, where that use is required under the European Union's ReFuelEU SAF mandate. That mandate, in effect since the start of 2025, requires a minimum 2% SAF blend at EU airports, rising over time to 6%, alongside a separate 1.2% requirement specifically for synthetic eSAF by 2030.</p>
+                                <p>A per tonne penalty of that size is not symbolic — it is designed to make non compliance more expensive than simply buying and using the fuel, which is precisely the point. Mandates without meaningful penalties tend to become suggestions. Mandates backed by enforcement tend to get met.</p>
+
+                                <h5>Why regulators are taking this approach</h5>
+                                <p>SAF remains more expensive than conventional jet fuel, and airlines operate on thin margins in a competitive market. Left purely to market forces, there is little incentive for any single carrier to absorb that extra cost ahead of its competitors. Strict, enforceable mandates change the calculation — they remove the advantage of waiting, and push fuel producers, refiners, and airlines to plan around a fixed, known trajectory of demand.</p>
+                                <p>This is also where certainty becomes valuable for investment. When a government commits to penalties rather than encouragement, fuel producers gain more confidence that demand for SAF will actually materialize, which supports the case for building new production capacity.</p>
+
+                                <h5>The trade off regulators have to manage</h5>
+                                <p>Strict enforcement is not without friction. If SAF supply cannot keep pace with mandated demand, airlines can find themselves penalized for a shortage they did not create. That tension, between ambitious mandates and the practical limits of current SAF production capacity, is one that regulators across Europe and beyond will need to keep managing carefully as blending percentages rise through the rest of the decade.</p>
+                                <p>Even so, the direction of travel is clear. Aviation sustainability policy is moving from voluntary commitments toward binding rules with real costs attached for falling short. Strict does not have to mean punitive — done well, firm enforcement is what turns a climate target into an actual market.</p>
+                            </div>
+                        </details>
+
+                        <details class="news-card">
+                            <summary>
+                                <span class="news-meta">August 2026 · Himanshi Shrimali</span>
+                                <span class="news-title">Commercial Aviation's Long Runway to Net Zero</span>
+                                <span class="news-excerpt">Aviation produces around 2.05% of human induced CO2 emissions — its net zero roadmap leans on several levers working together.</span>
+                                <span class="news-toggle-label">Read Article ▾</span>
+                            </summary>
+                            <div class="news-body">
+                                <p>Commercial aviation occupies an odd place in the climate conversation. It is often singled out as an emissions problem, yet by most global accounting it is responsible for a comparatively small slice of the total. According to the Air Transport Action Group's facts and figures, the global aviation industry produces around 2.05% of all human induced CO2 emissions — a real number, not a small one, but it sits well behind sectors such as power generation, heavy industry, and road transport.</p>
+                                <p>The reason aviation draws outsized attention is not just its size, but its trajectory. Passenger demand keeps growing, and unlike electricity generation, aviation does not yet have an easy, at scale substitute for liquid fuel. That combination is what makes commercial aviation's net zero commitment, targeted for 2050 by bodies including the International Air Transport Association, genuinely difficult to deliver.</p>
+
+                                <h5>A strategy built on several levers at once</h5>
+                                <p>No single technology gets commercial aviation to net zero on its own. Sustainable aviation fuel is expected to carry the largest share of emissions reduction, since it can cut lifecycle CO2 by roughly 80% compared with conventional jet fuel and can be used in aircraft already flying today. Fleet renewal adds another layer, as newer aircraft are meaningfully more efficient than the models they replace. Operational improvements — better routing, smarter air traffic management, and reduced taxi and idle time — chip away at emissions without requiring new aircraft at all. Carbon removal and offsetting are expected to cover whatever gap remains once the other levers have done as much as they can.</p>
+
+                                <h5>Efficiency has already improved, quietly</h5>
+                                <p>It is easy to assume aviation has made little progress, but the industry has become substantially more fuel efficient over the decades, even as passenger numbers have climbed. Average aircraft occupancy reached 83.6% in 2025, far higher than most other forms of transport, which spreads each flight's emissions across more travelers. A modern single aisle aircraft coming off the production line today emits around 50 grams of CO2 per seat kilometre, a figure that compares favorably with many compact cars once realistic occupancy is factored in.</p>
+
+                                <h5>Where the real friction lies</h5>
+                                <p>The honest constraint on commercial aviation's transition is supply, not ambition. SAF production remains a tiny fraction of global jet fuel demand, and scaling it requires feedstock, refining capacity, certification, and capital, all of which take years to build. This is part of why regulatory mandates, like the EU's ReFuelEU Aviation requirements, matter so much — they give fuel producers the demand certainty needed to justify building new capacity in the first place.</p>
+                                <p>Net zero by 2050 is less a single finish line than a long series of incremental decisions, on fuel, fleets, and flight paths, made consistently over the next two and a half decades.</p>
+                            </div>
+                        </details>
+
+                        <details class="news-card">
+                            <summary>
+                                <span class="news-meta">August 2026 · Himanshi Shrimali</span>
+                                <span class="news-title">The High Cost of Convenience: Private Jets and Their Carbon Footprint</span>
+                                <span class="news-excerpt">Private aviation serves an estimated 0.003% of the world's adult population, yet carries a disproportionate climate cost.</span>
+                                <span class="news-toggle-label">Read Article ▾</span>
+                            </summary>
+                            <div class="news-body">
+                                <p>Private aviation touches a vanishingly small share of the world's population, yet it occupies an outsized place in the debate over aviation's climate impact. Understanding why requires looking past headline emissions totals and toward emissions per passenger, which is where the private jet story becomes far more striking.</p>
+
+                                <h5>A small user base, a large footprint</h5>
+                                <p>Research published in Communications Earth and Environment, drawing on flight tracker data covering more than 18.6 million private flights between 2019 and 2023, found that private aviation produced at least 15.6 million tonnes of CO2 in 2023 alone, or roughly 3.6 tonnes per flight. Over that same five year window, private jet emissions rose by 46%, a pace of growth that has outstripped much of commercial aviation's recovery from the pandemic. What makes this figure notable is the size of the user base behind it — private aviation serves an estimated 0.003% of the world's adult population.</p>
+
+                                <h5>Why per passenger emissions tell a different story</h5>
+                                <p>Comparisons between private and commercial flying vary depending on methodology, aircraft type, and route, but the pattern is consistent across independent studies. Analysis from Transport and Environment puts private jets at 5 to 14 times more polluting per passenger than commercial aircraft, and around 50 times more polluting than rail travel. Route length compounds the problem — nearly half of all private flights between 2019 and 2023 covered less than 500 kilometres, distances that in many cases could have been driven or, in parts of Europe, taken by train instead.</p>
+
+                                <h5>A concentrated, and growing, phenomenon</h5>
+                                <p>Private aviation is not evenly distributed. The United States accounts for close to 69% of the world's private aircraft, and private jet activity tends to spike around major cultural, political, and sporting events. That concentration matters for policy, since it suggests emissions from private aviation could be meaningfully addressed through targeted measures, such as per flight levies, rather than requiring an industry wide overhaul.</p>
+
+                                <h5>What sustainability looks like for private aviation</h5>
+                                <p>Private aviation is not exempt from the same tools reshaping commercial flying. Sustainable aviation fuel, more efficient aircraft, and smarter routing all apply here too, and several private aviation operators have begun adopting SAF blends and carbon offset programmes. The difference is scale and urgency — reducing unnecessary short haul private flights, and pricing the true climate cost of convenience, are likely to matter just as much as any technology shift.</p>
+                                <p>Private aviation's emissions may be small on a global scale, but per passenger, they are some of the most concentrated in all of travel, and that is precisely why they deserve scrutiny.</p>
+                            </div>
+                        </details>
+
+                        <details class="news-card">
+                            <summary>
+                                <span class="news-meta">August 2026 · Himanshi Shrimali</span>
+                                <span class="news-title">The Case for the Skies: How Aviation Makes the World Feel Smaller</span>
+                                <span class="news-excerpt">Aviation has made distance far less of a barrier between people, economies, and ideas than it once was.</span>
+                                <span class="news-toggle-label">Read Article ▾</span>
+                            </summary>
+                            <div class="news-body">
+                                <p>Most conversations about aviation and sustainability, including several elsewhere on this page, focus on what flying costs the planet. That framing is necessary, but it is not the whole picture. Aviation has also done something quietly remarkable over the last century: it has made distance far less of a barrier between people, economies, and ideas than it once was.</p>
+
+                                <h5>A genuinely global network</h5>
+                                <p>According to the Air Transport Action Group's Aviation: Benefits Beyond Borders report, in 2023 more than 4.4 billion passengers travelled across over 35 million commercial flights, connecting through a global network of more than 4,000 airports and over 21,000 unique city to city routes. Air cargo carried an estimated $8 trillion worth of goods in 2023, close to a third of world trade by value.</p>
+
+                                <h5>The economic case is hard to ignore</h5>
+                                <p>ATAG estimates the sector, along with the tourism it enables, supported 86.5 million jobs and contributed around $4.1 trillion to global GDP in 2023, roughly 3.9% of the world economy. If aviation were a country, that would place it around the 20th largest economy in the world. Flying has also become dramatically more accessible over time — ATAG notes that an air ticket today costs around 70% less in real terms than it did in 1970.</p>
+
+                                <h5>What connectivity actually means for people</h5>
+                                <p>Numbers only tell part of the story. Aviation is what lets a grandparent make it to a grandchild's graduation on the other side of the world, what lets a small business owner meet an overseas supplier face to face, and what lets aid and medical teams reach disaster zones within hours rather than weeks. For remote and island communities in particular, air routes are often the only reliable lifeline to healthcare, education, and trade that would otherwise be entirely out of reach.</p>
+                                <p>None of this cancels out aviation's environmental impact. It is, instead, a reminder of why the industry is worth improving rather than simply criticising. The goal is not fewer connections between people — it is cleaner ones.</p>
+                            </div>
+                        </details>
+
+                    </div>
+                </div>
+
+                <div class="hub-footer-gap"></div>
             </div>
 
             <div class="wardrobe-footer-gap"></div>
@@ -826,6 +1207,44 @@
             document.getElementById('air-overlay').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             document.body.style.overflow = 'auto';
+            // reset the hub back to its intro state for the next visit
+            document.getElementById('takeoff-hub').style.display = 'none';
+            document.getElementById('air-intro').style.display = 'flex';
+            document.getElementById('air-overlay').classList.remove('hub-open');
+        }
+
+        // NEW: Climate Air "Take-off Hub" (Live Forum / Resources / News & Articles / Contact)
+        function openTakeoffHub() {
+            document.getElementById('air-intro').style.display = 'none';
+            document.getElementById('takeoff-hub').style.display = 'block';
+            document.getElementById('air-overlay').classList.add('hub-open');
+            showHubPanel('landing');
+            window.scrollTo(0, 0);
+        }
+        function closeTakeoffHub() {
+            document.getElementById('takeoff-hub').style.display = 'none';
+            document.getElementById('air-intro').style.display = 'flex';
+            document.getElementById('air-overlay').classList.remove('hub-open');
+            window.scrollTo(0, 0);
+        }
+        function showHubPanel(panel) {
+            var panels = document.querySelectorAll('.hub-panel');
+            for (var i = 0; i < panels.length; i++) { panels[i].classList.remove('active-panel'); }
+            var navBtns = document.querySelectorAll('.hub-nav-btn');
+            for (var j = 0; j < navBtns.length; j++) { navBtns[j].classList.remove('active'); }
+
+            var target = document.getElementById('panel-' + panel);
+            if (target) { target.classList.add('active-panel'); }
+            var btn = document.getElementById('navbtn-' + panel);
+            if (btn) { btn.classList.add('active'); }
+            window.scrollTo(0, 0);
+        }
+        // Briefly highlight the Live Forum / Contact buttons on click (they open in a new tab)
+        function setActiveHubNav(id) {
+            var navBtns = document.querySelectorAll('.hub-nav-btn');
+            for (var j = 0; j < navBtns.length; j++) { navBtns[j].classList.remove('active'); }
+            var btn = document.getElementById(id);
+            if (btn) { btn.classList.add('active'); }
         }
     </script>
 </body>
